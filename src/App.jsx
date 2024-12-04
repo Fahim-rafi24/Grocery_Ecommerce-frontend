@@ -4,8 +4,6 @@ import Sidebar from "./Components/Utils/Sidebar/Sidebar.jsx"
 
 
 
-
-
 const App = () => {
   return (
     <>
@@ -20,5 +18,4 @@ const App = () => {
     </>
   )
 }
-
 export default App

@@ -1,0 +1,64 @@
+[
+    {
+        "path": "randomeData",
+        "story": [
+            {
+                "index": 1,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167070&q=low&v=1&m=600&webp=1"
+            },
+            {
+                "index": 2,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166193&q=low&v=1&m=600&webp=1"
+            },
+            {
+                "index": 3,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D161535&q=low&v=1&m=600&webp=1"
+            },
+            {
+                "index": 4,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164903&q=low&v=1&m=600&webp=1"
+            },
+            {
+                "index": 5,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164058&q=low&v=1&m=600&webp=1"
+            },
+            {
+                "index": 6,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D165782&q=low&v=1&m=600&webp=1"
+            },
+            {
+                "index": 7,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166796&q=low&v=1&m=600&webp=1"
+            },
+            {
+                "index": 8,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D165969&q=low&v=1&m=600&webp=1"
+            },
+            {
+                "index": 9,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D164720&q=low&v=1&m=600&webp=1"
+            }
+        ]
+    },
+    {
+        "path": "card%favourites%popular",
+        "coverBanner": [
+            {
+                "index":1,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166305&q=best&v=1&m=700&webp=1"
+            },
+            {
+                "index":2,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D157198&q=best&v=1&m=700&webp=1"
+            },
+            {
+                "index":3,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D163212&q=best&v=1&m=700&webp=1"
+            },
+            {
+                "index":4,
+                "photo": "https://chaldn.com/_mpimage/popular?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D165181&q=best&v=1&m=700&webp=1"
+            }
+        ]
+    }
+]

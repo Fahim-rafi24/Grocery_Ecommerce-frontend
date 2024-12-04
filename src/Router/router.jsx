@@ -23,6 +23,14 @@ const Router = createBrowserRouter([
             element: <div>cart</div>  // user add cart path
         },
         {
+            path: '/popular',
+            element: <div>popular</div>  // user add popular path
+        },
+        {
+            path: '/favourites',
+            element: <div>favourites</div>  // user add favourites path
+        },
+        {
             path: '/Industry/:name',
             element: <Industry_Page></Industry_Page>
         },

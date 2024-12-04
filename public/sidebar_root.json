@@ -1,0 +1,164 @@
+[
+    {
+        "Industry": "Food",
+        "pic": "https://chaldn.com/_mpimage/popular?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95790&q=best&v=1&m=40&webp=1&alpha=1",
+        "All_Catagory":[
+            {
+                "Catagory": "Fruits & Vegetables",
+                "pic": "https://chaldn.com/_mpimage/fruits-vegetables?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D23769&q=low&v=1&m=400&webp=1",
+                "All_SubCatagory":[
+                    {
+                        "SubCatagory": "Fresh Vegetables",
+                        "pic": "https://chaldn.com/_mpimage/fresh-vegetables?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D23773&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Fresh Fruits",
+                        "pic": "https://chaldn.com/_mpimage/fresh-fruits?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D61651&q=low&v=1&m=400&webp=1"
+                    }
+                ]
+            },
+            {
+                "Catagory": "Meat & Fish",
+                "pic": "https://chaldn.com/_mpimage/meat-fish?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166338&q=low&v=1&m=400&webp=1",
+                "All_SubCatagory":[
+                    {
+                        "SubCatagory": "Chicken & Poultry",
+                        "pic": "https://chaldn.com/_mpimage/chicken-poultry?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D117422&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Meat",
+                        "pic": "https://chaldn.com/_mpimage/meat?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D117424&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Frozen Fish",
+                        "pic": "https://chaldn.com/_mpimage/frozen-fish?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D81235&q=low&v=1&m=400&webp=1"
+                    }
+                ]
+            },
+            {
+                "Catagory": "Cooking",
+                "pic": "https://chaldn.com/_mpimage/cooking?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D118865&q=best&v=1&m=400&webp=1",
+                "All_SubCatagory":[
+                    {
+                        "SubCatagory": "Rice",
+                        "pic": "https://chaldn.com/_mpimage/rice?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166345&q=best&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Oil",
+                        "pic": "https://chaldn.com/_mpimage/oil?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166362&q=best&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Spices",
+                        "pic": "https://chaldn.com/_mpimage/spices?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101151&q=best&v=1&m=400&webp=1"
+                    }
+                ]
+            },
+            {
+                "Catagory": "Beverages",
+                "pic": "https://chaldn.com/_mpimage/beverages?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D23727&q=low&v=1&m=400&webp=1",
+                "All_SubCatagory":[
+                    {
+                        "SubCatagory": "Tea",
+                        "pic": "https://chaldn.com/_mpimage/tea?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D82846&q=best&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Soft Drinks",
+                        "pic": "https://chaldn.com/_mpimage/soft-drinks?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D27882&q=best&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Coffee",
+                        "pic": "https://chaldn.com/_mpimage/coffee?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D31521&q=best&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Juice",
+                        "pic": "https://chaldn.com/_mpimage/juice?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D30218&q=best&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Water",
+                        "pic": "https://chaldn.com/_mpimage/water?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D27886&q=best&v=1&m=400&webp=1"
+                    }
+                ]
+            },
+            {
+                "Catagory": "Dairy & Eggs",
+                "pic": "https://chaldn.com/_mpimage/dairy-eggs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166472&q=best&v=1&m=400&webp=1",
+                "All_SubCatagory":[
+                    {
+                        "SubCatagory": "Eggs",
+                        "pic": "https://chaldn.com/_mpimage/eggs?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D45577&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Powder Milk",
+                        "pic": "https://chaldn.com/_mpimage/powder-milk?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D133638&q=best&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Liquid & UHT Milk",
+                        "pic": "https://chaldn.com/_mpimage/liquid-uht-milk?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D31522&q=best&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Cheese",
+                        "pic": "https://chaldn.com/_mpimage/cheese?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D29526&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Condensed Milk & Cream",
+                        "pic": "https://chaldn.com/_mpimage/condensed-milk-cream?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116602&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Butter & Sour Cream",
+                        "pic": "https://chaldn.com/_mpimage/butter-sour-cream?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D29535&q=low&v=1&m=400&webp=1"
+                    }
+                ]
+            },
+            {
+                "Catagory": "Snacks",
+                "pic": "https://chaldn.com/_mpimage/snacks?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D23741&q=low&v=1&m=400&webp=1",
+                "All_SubCatagory":[
+                    {
+                        "SubCatagory": "Noodles",
+                        "pic": "https://chaldn.com/_mpimage/noodles?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D101156&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Cookies",
+                        "pic": "https://chaldn.com/_mpimage/cookies?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116600&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Chips & Pretzels",
+                        "pic": "https://chaldn.com/_mpimage/chips-pretzels?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D35282&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Soups",
+                        "pic": "https://chaldn.com/_mpimage/soups?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D27259&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Toast & Bakery Biscuits",
+                        "pic": "https://chaldn.com/_mpimage/toast-bakery-biscuits?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D116627&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Pasta & Macaroni",
+                        "pic": "https://chaldn.com/_mpimage/pasta-macaroni?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D31653&q=low&v=1&m=400&webp=1"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "Industry": "Stationery & Office",
+        "pic": "https://chaldn.com/_mpimage/stationery-office?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95792&q=low&v=1&m=40&webp=1&alpha=1",
+        "All_Catagory": [
+            {
+                "Catagory": "Office Electronics",
+                "pic": "https://chaldn.com/_mpimage/office-electronics?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166410&q=best&v=1&m=400&webp=1",
+                "All_SubCatagory": [
+                    {
+                        "SubCatagory": "Batteries",
+                        "pic": "https://chaldn.com/_mpimage/batteries?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D28700&q=low&v=1&m=400&webp=1"
+                    },
+                    {
+                        "SubCatagory": "Calculators",
+                        "pic": "https://chaldn.com/_mpimage/calculators?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D166396&q=best&v=1&m=400&webp=1"
+                    }
+                ]
+            }
+        ]
+    }
+]

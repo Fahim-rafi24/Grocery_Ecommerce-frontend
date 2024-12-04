@@ -1,3 +1,5 @@
+import { Outlet } from "react-router-dom"
+import NaveBar from "./Components/Utils/Navbar/Navbar.jsx"
 
 
 
@@ -6,7 +8,13 @@
 const App = () =>{
   return(
     <>
-    hi I am rafi
+    {/* nave bar */}
+    <NaveBar></NaveBar>
+    
+    {/* sidebar */}
+
+    {/* Nested Routes */}
+    <Outlet></Outlet>
     </>
   )
 }

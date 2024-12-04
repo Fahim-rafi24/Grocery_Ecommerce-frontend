@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 // ContextStorage
 import { ThemeContext } from "../../../ContextStorage/ThemeContext";
 import { UserContext } from "../../../ContextStorage/UserContext";
@@ -8,6 +8,7 @@ import darkLogo from "../../../assets/Photo/dark_logo.jpg";
 import { FaUserCircle } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoReorderThreeSharp } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 
 
@@ -79,9 +80,9 @@ const NavBar = () => {
           </label>
           {
             theme === "dark" ?
-              <img src={darkLogo} alt="Main Logo" className="btn p-0 m-0" />
+              <Link to={'/'}><img src={darkLogo} alt="Main Logo" className="btn p-0 m-0" /></Link>
               :
-              <img src={lightLogo} alt="Main Logo" className="btn p-0 m-0 border-none rounded-md shadow-md" />
+              <Link to={'/'}><img src={lightLogo} alt="Main Logo" className="btn p-0 m-0 border-none rounded-md shadow-md" /></Link>
           }
         </div>
         {/* search section for Tab or learge device */}

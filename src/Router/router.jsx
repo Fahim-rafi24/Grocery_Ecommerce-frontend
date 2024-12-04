@@ -16,7 +16,11 @@ const Router = createBrowserRouter([
       children: [
         {
             path: '/',
-            element: <div>Hello world ?</div>  // randome items show here
+            element: <div>Randome items show here</div>  // randome items show here
+        },
+        {
+            path: '/cart',
+            element: <div>cart</div>  // user add cart path
         },
         {
             path: '/Industry/:name',

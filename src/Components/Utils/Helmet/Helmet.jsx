@@ -1,14 +1,13 @@
-import { Helmet } from "react-helmet"
+import { Helmet, HelmetProvider } from "react-helmet-async"
 
 
 const HelmetFunc = (name) => {
-    const title = `Chaldal || ${name} - Leargest Ecommerce In Bangladesh.`
     return (
-        <>
+        <HelmetProvider>
             <Helmet>
-                <title>{title}</title>
+                <title>Chaldal || ${name} - Leargest Ecommerce In Bangladesh.</title>
             </Helmet>
-        </>
+        </HelmetProvider>
     )
 }
 export { HelmetFunc }

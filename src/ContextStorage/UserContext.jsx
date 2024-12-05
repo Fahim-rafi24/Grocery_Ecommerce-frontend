@@ -17,6 +17,7 @@ const UserProvider = ({ children }) => {
         Permanent_location: "Vakutiya, jessore, Khulna, Bangladesh",
         current_location: "Vakutiya, jessore, Khulna, Bangladesh",
         Mobile_NO: "+8801784918086",
+        isAdmin : true,
         email: 'kazirafibd@gmail.com'
     }
 

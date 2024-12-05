@@ -1,4 +1,7 @@
-import { useContext, useEffect } from "react";
+// react
+import { useContext, useEffect, useRef } from "react";
+// react router
+import { Link, useNavigate } from "react-router-dom";
 // ContextStorage
 import { ThemeContext } from "../../../ContextStorage/ThemeContext";
 import { UserContext } from "../../../ContextStorage/UserContext";
@@ -8,15 +11,27 @@ import darkLogo from "../../../assets/Photo/dark_logo.jpg";
 import { FaUserCircle } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoReorderThreeSharp } from "react-icons/io5";
-import { Link } from "react-router-dom";
-
 
 
 const NavBar = () => {
+  const navigate = useNavigate();
+
   // call Theme from ThemeContext.jsx
   const { theme, setTheme, toggleDarkMode } = useContext(ThemeContext);
+
   // call user from UserContext.jsx
   const { user } = useContext(UserContext);
+
+  // make a ref for search input with navigate
+  const inputRef = useRef();
+  const handleSearch = () => {
+    // get search value
+    let data = inputRef?.current?.value;
+    if (!data.trim()) {
+      data = 'give_me_data'
+    }
+    return navigate(`/search/${data}`);
+  };
 
   // them effect
   useEffect(() => {
@@ -39,6 +54,8 @@ const NavBar = () => {
   const navbarSearch = (
     <div className="relative w-full max-w-md">
       <input
+        ref={inputRef}
+        onChange={handleSearch}
         type="text"
         placeholder="Search for products (eggs, milk, potato)"
         className={`w-full h-12 rounded-full pl-12 pr-4 font-bold text-sm shadow-md focus:outline-none focus:ring-2 ${theme === "dark" ? "bg-gray-800 text-white focus:ring-gray-600" : "bg-white text-black border-2 border-gray-300 focus:ring-blue-500"

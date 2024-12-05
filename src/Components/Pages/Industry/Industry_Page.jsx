@@ -7,9 +7,9 @@ const Industry_Page = () => {
     // console.log(name)
 
     return (
-        <div className="w-full p-3 text-[14px] md:text-[16px]">
+        <div className="w-full p-3">
             {/* top route path */}
-            <div className="yuji-mai-regular">
+            <div className="yuji-mai-regular text-[14px] md:text-[16px]">
                 <Link>
                 <span className="hover:text-amber-500">{name}</span>
                 </Link>

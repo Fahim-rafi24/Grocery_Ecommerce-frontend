@@ -7,9 +7,9 @@ const SubCatagory_Page = () => {
     const [Industry, Catagory, SubCatagory] = JSON.parse(Data);
 
     return (
-        <div className="w-full p-3 text-[14px] md:text-[16px]">
+        <div className="w-full p-3">
             {/* top route path */}
-            <div className="yuji-mai-regular">
+            <div className="yuji-mai-regular text-[14px] md:text-[16px]">
                 <Link
                     to={`/Industry/${Industry}`}>
                     <span className="hover:text-amber-500">{Industry}</span>

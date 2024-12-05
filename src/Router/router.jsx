@@ -35,11 +35,11 @@ const Router = createBrowserRouter([
             element: <Industry_Page></Industry_Page>
         },
         {
-            path: '/Catagory/:name',
+            path: '/Catagory/:Data',
             element: <Catagory_Page></Catagory_Page>
         },
         {
-            path: '/SubCatagory/:name',
+            path: '/SubCatagory/:Data',
             element: <SubCatagory_Page></SubCatagory_Page>
         }
       ],

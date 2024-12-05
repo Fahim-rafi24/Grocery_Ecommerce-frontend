@@ -1,14 +1,17 @@
 import { useParams } from "react-router-dom";
+import { HelmetFunc } from "../Utils/Helmet/Helmet";
 
 
-const Search =() =>{
-    const {search} = useParams();
-    const hastag = {hastag: search}
+const Search = () => {
+    const { search } = useParams();
+    const hastag = { hastag: search }
     console.log(hastag)
-    return(
+    return (
         <div className="w-full p-3 border">
-        Search
-        {search}
+            {/* helmet */}
+            {HelmetFunc("Search")}
+            Search
+            {search}
         </div>
     );
 }

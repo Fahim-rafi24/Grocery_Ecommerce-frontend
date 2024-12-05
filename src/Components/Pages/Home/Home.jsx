@@ -1,9 +1,13 @@
+import { HelmetFunc } from "../../Utils/Helmet/Helmet";
 
 
-const Home =() =>{
-    return(
+
+const Home = () => {
+    return (
         <div className="w-full p-3 border">
-        home
+            {/* helmet */}
+            {HelmetFunc("Home")}
+            home
         </div>
     );
 }

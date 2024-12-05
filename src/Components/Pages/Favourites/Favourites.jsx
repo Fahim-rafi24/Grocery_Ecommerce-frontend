@@ -1,9 +1,12 @@
+import { HelmetFunc } from "../../Utils/Helmet/Helmet";
 
 
-const Favourites =() =>{
-    return(
+const Favourites = () => {
+    return (
         <div className="w-full p-3 border">
-        Favourites
+            {/* helmet */}
+            {HelmetFunc("Favourites")}
+            Favourites
         </div>
     );
 }

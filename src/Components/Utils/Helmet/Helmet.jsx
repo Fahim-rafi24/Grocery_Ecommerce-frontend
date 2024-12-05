@@ -5,7 +5,7 @@ const HelmetFunc = (name) => {
     return (
         <HelmetProvider>
             <Helmet>
-                <title>Chaldal || ${name} - Leargest Ecommerce In Bangladesh.</title>
+                <title>Chaldal || {name} - Leargest Ecommerce In Bangladesh.</title>
             </Helmet>
         </HelmetProvider>
     )

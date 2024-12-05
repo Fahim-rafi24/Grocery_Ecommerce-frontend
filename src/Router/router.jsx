@@ -12,6 +12,7 @@ import { Favourites } from "../Components/Pages/Favourites/Favourites";
 import { Search } from "../Components/Pages/Search";
 
 
+
 const Router = createBrowserRouter([
     {
       path: "/",
@@ -19,6 +20,10 @@ const Router = createBrowserRouter([
       children: [
         {
             path: '/',
+            element: <Home></Home>  // randome items show here
+        },
+        {
+            path: '/:random',
             element: <Home></Home>  // randome items show here
         },
         {
@@ -30,12 +35,12 @@ const Router = createBrowserRouter([
             element: <Cart></Cart>  // user add cart path
         },
         {
-            path: '/popular',
-            element: <Popular></Popular>  // user add popular path
-        },
-        {
             path: '/favourites',
             element: <Favourites></Favourites>  // user add favourites path
+        },
+        {
+            path: '/popular',
+            element: <Popular></Popular>  // user add popular path
         },
         {
             path: '/Industry/:name',
@@ -48,6 +53,14 @@ const Router = createBrowserRouter([
         {
             path: '/SubCatagory/:Data',
             element: <SubCatagory_Page></SubCatagory_Page>
+        },
+        {
+            path: '/login',
+            element: <div>login</div>
+        },
+        {
+            path: '/register',
+            element: <div>register</div>
         }
       ],
     },

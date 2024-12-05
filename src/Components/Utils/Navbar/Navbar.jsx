@@ -115,11 +115,12 @@ const NavBar = () => {
             {
               !user ?
                 <div className="flex">
-                  <button
+                  <Link
+                    to={'/login'}
                     className="btn hover:bg-white border rounded-lg text-lg font-bold bg-green-400 text-black"
                   >
                     Login
-                  </button>
+                  </Link>
                   <div className="hidden xl:block ml-2 grid justify-center items-center yuji-mai-regular">
                     <h4 className="text-[13px] font-bold italic dark:text-neutral-100">Leargest Ecommerce In Bangladesh.</h4>
                   </div>

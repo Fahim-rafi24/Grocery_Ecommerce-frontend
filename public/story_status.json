@@ -1,7 +1,11 @@
 [
     {
         "path": "randomeData",
-        "story": [
+        "coverBanner": [
+            {
+                "index": 0,
+                "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167070&q=low&v=1&m=600&webp=1"
+            },
             {
                 "index": 1,
                 "photo": "https://chaldn.com/_mpimage?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D167070&q=low&v=1&m=600&webp=1"
@@ -41,7 +45,7 @@
         ]
     },
     {
-        "path": "card%favourites%popular",
+        "path": "cart%favourites%popular",
         "coverBanner": [
             {
                 "index":1,

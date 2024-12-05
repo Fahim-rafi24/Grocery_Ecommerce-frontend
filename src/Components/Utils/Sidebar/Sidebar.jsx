@@ -9,7 +9,7 @@ import { SideBar_Formating } from "./SideBar_Formating";
 
 const Sidebar = () => {
     return (
-        <div className="drawer lg:drawer-open w-fit min-h-full">
+        <div className="drawer lg:drawer-open w-fit min-h-full z-50">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" aria-label="close sidebar" className="drawer-overlay"></label>

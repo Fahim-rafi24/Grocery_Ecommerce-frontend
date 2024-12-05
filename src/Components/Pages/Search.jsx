@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { HelmetFunc } from "../Utils/Helmet/Helmet";
+import { Home_Serch_story } from "../Utils/storyStatus/Home_Serch_story";
 
 
 const Search = () => {
@@ -12,6 +13,8 @@ const Search = () => {
             {HelmetFunc("Search")}
             Search
             {search}
+            {/* story */}
+            <Home_Serch_story></Home_Serch_story>
         </div>
     );
 }

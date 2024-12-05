@@ -1,10 +1,12 @@
 import { HelmetFunc } from "../../Utils/Helmet/Helmet";
 import { Link, useNavigate } from "react-router-dom";
 // context
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../../ContextStorage/UserContext";
 // alart
 import Swal from "sweetalert2";
+// story
+import { Home_Serch_story } from "../../Utils/storyStatus/Home_Serch_story";
 
 
 
@@ -44,7 +46,7 @@ const Home = () => {
             {HelmetFunc("Home")}
             <p className="yuji-mai-regular text-[14px] md:text-[16px]">home</p>
             {/* admin Root btn */}
-            <div className="py-10">
+            <div className="py-5">
                 {
                     user?.isAdmin === true && <button
                         onClick={adminHeandelFunc}
@@ -52,7 +54,8 @@ const Home = () => {
                     >Admin Page</button>
                 }
             </div>
-
+            {/* story */}
+            <Home_Serch_story></Home_Serch_story>
         </div>
     );
 }

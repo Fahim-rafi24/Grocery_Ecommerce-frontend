@@ -34,6 +34,9 @@ const Sidebar = () => {
                     {/* products path */}
                     <SideBar_Formating></SideBar_Formating>
 
+                    {/* Logout Btn */}
+                    <button className="btn rounded-lg text-white bg-purple-500 hover:bg-orange-400 font-thin my-5 px-6 dark:text-black dark:hover:bg-yellow-700 dark:bg-yellow-300">Log out</button>
+
                     {/* white space */}
                     <div className="h-36"></div>
                 </div>

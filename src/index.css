@@ -19,3 +19,7 @@
     font-family: "Yuji Mai", serif;
 }
 /* font class End */
+
+.active{
+    color: rgb(255, 0, 242);
+}

@@ -11,6 +11,8 @@ import darkLogo from "../../../assets/Photo/dark_logo.jpg";
 import { FaUserCircle } from "react-icons/fa";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoReorderThreeSharp } from "react-icons/io5";
+// alart
+import Swal from "sweetalert2";
 
 
 const NavBar = () => {
@@ -49,6 +51,20 @@ const NavBar = () => {
   const handleToggle = () => {
     setTheme(theme === 'cupcake' ? 'dark' : 'cupcake');
   };
+
+  // user Info
+  const userInfoHandle = () => {
+    Swal.fire({
+      title: `Name : ${user?.name}`,
+      html: `
+      <h2 class="text-2xl my-5">Email : ${user?.email}</strong> <h2/>
+      <strong>Contruct : ${user?.Mobile_NO}</strong> <br/>
+      <p>Address :${user?.Permanent_location}</p>
+      `,
+      icon: 'info',
+      confirmButtonText: 'Close'
+    });
+  }
 
   // navbarSearch
   const navbarSearch = (
@@ -131,7 +147,7 @@ const NavBar = () => {
                     user?.avater ?
                       // if truthy
                       <div className="flex flex-row">
-                        <img src={user.avater} alt="user Avater" className="h-12 w-12 rounded-full" />
+                        <img onClick={userInfoHandle} src={user.avater} alt="user Avater" className="h-12 w-12 rounded-full" />
                         {userDetails}
                       </div>
                       :
@@ -139,12 +155,12 @@ const NavBar = () => {
                       <>
                         {
                           theme === "dark" ?
-                            <div className="flex h-full flex-row">
+                            <div className="flex h-full flex-row" onClick={userInfoHandle}>
                               <FaUserCircle className="h-full text-5xl" />
                               {userDetails}
                             </div>
                             :
-                            <div className="flex h-full flex-row">
+                            <div className="flex h-full flex-row" onClick={userInfoHandle}>
                               <FaRegUserCircle className="h-full text-5xl" />
                               {userDetails}
                             </div>

@@ -16,8 +16,6 @@ import { AdminHome } from "../Components/Pages/Admin/Home/AdminHome";
 import { AddProduct } from "../Components/Pages/Admin/AddProduct/AddProduct";
 import { AdminRootIdentification } from "../AdminRootIdentification/AdminRootIdentification";
 
-
-
 const Router = createBrowserRouter([
     {
       path: "/",

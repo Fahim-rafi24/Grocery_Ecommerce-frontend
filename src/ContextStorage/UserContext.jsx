@@ -1,10 +1,7 @@
 import { createContext, useEffect, useState } from "react";
 
-
 // Create the ThemeContext
 export const UserContext = createContext();
-
-
 
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -25,7 +22,7 @@ const UserProvider = ({ children }) => {
     // call user
     useEffect(() => {
         if (!user) {
-            // call user with localStorage name & Refresh Token
+            // call user with fireBase
             setUser(callUser);
         }
     }, [user])

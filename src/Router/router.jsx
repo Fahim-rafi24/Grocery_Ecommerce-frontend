@@ -12,6 +12,9 @@ import { Favourites } from "../Components/Pages/Favourites/Favourites";
 import { Search } from "../Components/Pages/Search";
 import Register from "../Components/Pages/Register/Register";
 import Login from "../Components/Pages/Login/Login";
+import { AdminHome } from "../Components/Pages/Admin/Home/AdminHome";
+import { AddProduct } from "../Components/Pages/Admin/AddProduct/AddProduct";
+import { AdminRootIdentification } from "../AdminRootIdentification/AdminRootIdentification";
 
 
 
@@ -72,7 +75,11 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/admin',
-                element: <>hi admin</>
+                element: <AdminRootIdentification><AdminHome></AdminHome></AdminRootIdentification>  // TODO : check admin
+            },
+            {
+                path: '/admin/add_newProduct',
+                element: <AdminRootIdentification><AddProduct></AddProduct></AdminRootIdentification>  // TODO : check admin
             }
         ]
     }

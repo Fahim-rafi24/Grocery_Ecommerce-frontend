@@ -8,6 +8,7 @@ export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
+    const [logOutVisible, setLogOutVisible] = useState(false);
 
     // fake user data
     const callUser = {
@@ -21,16 +22,26 @@ const UserProvider = ({ children }) => {
         email: 'kazirafibd@gmail.com'
     }
 
+    // call user
     useEffect(() => {
         if (!user) {
-            // do this work
-            // setUser(callUser)
+            // call user with localStorage name & Refresh Token
+            setUser(callUser);
         }
     }, [user])
 
+    // logOutVisible
+    useEffect(()=>{
+        if (user) {
+            setLogOutVisible(true)
+        } else{
+            setLogOutVisible(false)
+        }
+    },[user])
+
     // sending data
     const result = {
-        user
+        user, logOutVisible
     };
 
     return (

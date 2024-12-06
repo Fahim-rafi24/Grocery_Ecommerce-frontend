@@ -38,7 +38,7 @@ const Login = () => {
             </div>
             <section className="mt-10 md:mt-20 md:flex min-h-32">
                 {/* info div */}
-                <div className="w-full md:w-[50%]">
+                <div className="w-full md:w-[50%] mb-5">
                     {/* form */}
                     <form
                         onSubmit={handleLogin}

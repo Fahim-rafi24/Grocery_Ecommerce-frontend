@@ -24,7 +24,7 @@ const UserProvider = ({ children }) => {
     useEffect(() => {
         if (!user) {
             // do this work
-            setUser(callUser)
+            // setUser(callUser)
         }
     }, [user])
 

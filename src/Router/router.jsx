@@ -10,6 +10,8 @@ import { Cart } from "../Components/Pages/Cart/Cart";
 import { Popular } from "../Components/Pages/Popular/popular";
 import { Favourites } from "../Components/Pages/Favourites/Favourites";
 import { Search } from "../Components/Pages/Search";
+import Register from "../Components/Pages/Register/Register";
+import Login from "../Components/Pages/Login/Login";
 
 
 
@@ -56,11 +58,11 @@ const Router = createBrowserRouter([
         },
         {
             path: '/login',
-            element: <div>login</div>
+            element: <Login></Login>
         },
         {
             path: '/register',
-            element: <div>register</div>
+            element: <Register></Register>
         }
       ],
     },

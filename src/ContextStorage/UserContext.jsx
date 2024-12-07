@@ -22,7 +22,7 @@ const UserProvider = ({ children }) => {
     useEffect(() => {
         if (!user) {
             // call user with fireBase
-            setUser(callUser);
+            // setUser(callUser);
         }
     }, [user])
 

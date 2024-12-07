@@ -16,6 +16,7 @@ const FirebaseContext = ({ children }) => {
             }
             else{
                 // nothing
+                setEmail(user)
             }
         })
     }, [])
@@ -27,6 +28,7 @@ const FirebaseContext = ({ children }) => {
 
 
     const result = {
+        // only use for userContext
         firebaseEmail,
         signNewUser
     };

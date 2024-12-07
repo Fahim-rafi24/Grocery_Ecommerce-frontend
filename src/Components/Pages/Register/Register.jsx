@@ -1,22 +1,25 @@
 // helmet
 import { HelmetFunc } from "../../Utils/Helmet/Helmet";
 // react router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // picture
 import LoginLogo from "../../../assets/Photo/login_side_pic.svg"
 import LoginIcon from "../../../assets/Photo/login.ico"
 // context
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../ContextStorage/FirebaseContext";
+// call axios
+import axios_without_cookies from "../../../Axios/axios_without_cookies";
+import Swal from "sweetalert2";
 
 
 // class variable
 const labelClass = "block text-sm font-medium text-gray-700 dark:text-zinc-200";
 
 const Register = () => {
+    const navigate = useNavigate();
     // auth
     const { signNewUser } = useContext(AuthContext);
-
     // state
     const [err, setError] = useState("");
     const [success, setSuccess] = useState("");
@@ -28,7 +31,7 @@ const Register = () => {
         setSuccess("");
         setError("");
         const form = e.target;
-        // get email & password value
+        // get name, email & password value
         const first_name = form.first_name.value;
         const last_name = form.last_name.value;
         const email = form.email.value;
@@ -43,11 +46,32 @@ const Register = () => {
         }
         // firebase call
         signNewUser(email, password)
-            .then(res => {
-                setSuccess("Sign Up Successfully")
-                // fresh input field
-                form.reset();
-                console.log(res.user)
+            .then(async (res) => {
+                try {
+                    if (typeof res?.user?.email === "string") {
+                        // make full name
+                        const userFullName = `${first_name.trim()} ${last_name.trim()}`;
+                        const userData = { name: userFullName, email };
+                        // call Axios POST request after successful Firebase sign-up
+                        const response = await axios_without_cookies.post('/userSignup', userData);
+                        if (response.data?.message === "success") {
+                            setSuccess('Sign Up Successfully');
+                            Swal.fire("Sign Up Successfully");
+                            // Reset the form inputs
+                            form.reset();
+                            navigate("/");
+                        }
+                        else {
+                            setError("Something Worng")
+                        }
+                    }
+                    else {
+                        setError("Something Worng")
+                    }
+                }
+                catch (axiosError) {
+                    setError('Something Worng');
+                }
             })
             .catch(error => {
                 const formattedError = error?.code?.split("/")[1] || "Something Worng";

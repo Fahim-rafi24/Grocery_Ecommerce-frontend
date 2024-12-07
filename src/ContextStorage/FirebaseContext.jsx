@@ -10,13 +10,12 @@ const FirebaseContext = ({ children }) => {
     const [firebaseEmail, setEmail] = useState(null);
     useEffect(() => {
         // auto call user
-        onAuthStateChanged(auth, (user)=>{
+        onAuthStateChanged(auth, (user) => {
             if (user) {
                 setEmail(user.email);
             }
-            else{
+            else {
                 // nothing
-                setEmail(user)
             }
         })
     }, [])

@@ -1,4 +1,6 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { AuthContext } from "./FirebaseContext";
+import axios_without_cookies from "../Axios/axios_without_cookies";
 
 // Create the userContext
 export const UserContext = createContext();
@@ -7,33 +9,36 @@ const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [logOutVisible, setLogOutVisible] = useState(false);
 
-    // fake user data
-    const callUser = {
-        "_id": 300,
-        name: 'kazi rafi',
-        // avater: 'https://chaldn.com/_mpimage/popular?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D95790&q=best&v=1&m=40&webp=1&alpha=1',
-        Permanent_location: "Vakutiya, jessore, Khulna, Bangladesh",
-        current_location: "Vakutiya, jessore, Khulna, Bangladesh",
-        Mobile_NO: "+8801784918086",
-        isAdmin : true,
-        email: 'kazirafibd@gmail.com'
-    }
+    // call firebase Email
+    const { firebaseEmail } = useContext(AuthContext);
+
     // call user
     useEffect(() => {
-        if (!user) {
-            // call user with fireBase
-            // setUser(callUser);
+        if (firebaseEmail) {
+            serverUserInfoCall()
         }
-    }, [user])
+        else{
+            setUser(null);
+        }
+    }, [firebaseEmail])
+    // call this function if firebase send Any user
+    const serverUserInfoCall = async () => {
+        try {
+            const response = await axios_without_cookies.post("/LogedInUser", { email: firebaseEmail });
+            setUser(response.data.data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     // logOutVisible
-    useEffect(()=>{
+    useEffect(() => {
         if (user) {
             setLogOutVisible(true)
-        } else{
+        } else {
             setLogOutVisible(false)
         }
-    },[user])
+    }, [user])
 
     // sending data
     const result = {

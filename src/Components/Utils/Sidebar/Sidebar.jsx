@@ -9,11 +9,13 @@ import { SideBar_Formating } from "./SideBar_Formating";
 // context
 import { createContext, useContext, useEffect, useState } from "react";
 import { UserContext } from "../../../ContextStorage/UserContext";
+import { AuthContext } from "../../../ContextStorage/FirebaseContext";
 
 
 
 const Sidebar = () => {
     const {logOutVisible} = useContext(UserContext);
+    const {logoutUser} = useContext(AuthContext);
 
     return (
         <div className="drawer lg:drawer-open w-fit min-h-full z-50">
@@ -43,7 +45,9 @@ const Sidebar = () => {
                         <SideBar_Formating></SideBar_Formating>
                     </div>
 
-                    { logOutVisible && <button className="btn rounded-lg text-white bg-purple-500 hover:bg-orange-400 font-thin my-5 px-6 dark:text-black dark:hover:bg-yellow-700 dark:bg-yellow-300 yuji-mai-regular">Log out</button>}
+                    { logOutVisible && <button
+                    onClick={()=>logoutUser()}
+                    className="btn rounded-lg text-white bg-purple-500 hover:bg-orange-400 font-thin my-5 px-6 dark:text-black dark:hover:bg-yellow-700 dark:bg-yellow-300 yuji-mai-regular">Log out</button>}
                     
                     {/* white space */}
                     <div className="h-16"></div>

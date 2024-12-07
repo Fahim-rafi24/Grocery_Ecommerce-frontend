@@ -24,7 +24,7 @@ const UserProvider = ({ children }) => {
     // call this function if firebase send Any user
     const serverUserInfoCall = async () => {
         try {
-            const response = await axios_without_cookies.post("/LogedInUser", { email: firebaseEmail });
+            const response = await axios_without_cookies.post("/logedInUser", { email: firebaseEmail });
             setUser(response.data.data);
         } catch (error) {
             console.error(error);

@@ -1,28 +1,44 @@
 // helmet
 import { HelmetFunc } from "../../Utils/Helmet/Helmet";
 // react router
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // picture
 import LoginLogo from "../../../assets/Photo/login_side_pic.svg"
 import LoginIcon from "../../../assets/Photo/login.ico"
+import { useContext, useState } from "react";
+import { AuthContext } from "../../../ContextStorage/FirebaseContext";
 
 
 // class variable
 const labelClass = "block text-sm font-medium text-gray-700 dark:text-zinc-200";
 
 const Login = () => {
+    const {logInOldUser} = useContext(AuthContext);
+    const navigate = useNavigate();
+
+    // handle error statement
+    const [error, setError] = useState("");
 
     // handle Submit
     const handleLogin = (e) => {
+        setError("");
         // auto reload off
         e.preventDefault();
         const form = e.target;
         // get email & password value
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+        logInOldUser(email, password)
+        .then((user) =>{
+            console.log(user.user.email);
+            navigate("/");
+        })
+        .catch(err =>{
+            const formattedError = err?.code?.split("/")[1] || "Something Worng";
+            setError(formattedError);
+        });
         // fresh input field
-        form.reset();
+        // form.reset();
     }
 
     return (
@@ -39,6 +55,7 @@ const Login = () => {
             <section className="mt-10 md:mt-20 md:flex min-h-32">
                 {/* info div */}
                 <div className="w-full md:w-[50%] mb-5">
+                    <p className="text-red-500 mb-4 font-bold">{error}</p>
                     {/* form */}
                     <form
                         onSubmit={handleLogin}

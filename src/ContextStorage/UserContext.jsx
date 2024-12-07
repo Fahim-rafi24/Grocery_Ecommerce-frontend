@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 
-// Create the ThemeContext
+// Create the userContext
 export const UserContext = createContext();
 
 const UserProvider = ({ children }) => {
@@ -42,7 +42,7 @@ const UserProvider = ({ children }) => {
 
     return (
         <UserContext.Provider value={result}>
-            {/* provide theme & set Theme */}
+            {/* provide user & set Theme */}
             {children}
         </UserContext.Provider>
     );

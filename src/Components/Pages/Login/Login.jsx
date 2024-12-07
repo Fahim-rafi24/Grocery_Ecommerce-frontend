@@ -20,7 +20,7 @@ const Login = () => {
         // get email & password value
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        console.log(email, password);
         // fresh input field
         form.reset();
     }

@@ -9,16 +9,19 @@ import './index.css'
 // context provider
 import ThemeProvider from './ContextStorage/ThemeContext.jsx';
 import UserProvider from './ContextStorage/UserContext.jsx';
+import FirebaseContext from './ContextStorage/FirebaseContext.jsx';
 // 
 
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UserProvider>  {/* User Data provider */}
-    <ThemeProvider>  {/* Theme provider */}
-    <RouterProvider router={Router} /> {/* react router provider */}
-    </ThemeProvider>
-    </UserProvider>
+    <FirebaseContext>  {/* Auth Data provider */}
+      <UserProvider>  {/* User Data provider */}
+        <ThemeProvider>  {/* Theme provider */}
+          <RouterProvider router={Router} /> {/* react router provider */}
+        </ThemeProvider>
+      </UserProvider>
+    </FirebaseContext>
   </StrictMode>,
 )

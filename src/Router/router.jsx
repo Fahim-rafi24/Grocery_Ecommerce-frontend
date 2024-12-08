@@ -73,11 +73,11 @@ const Router = createBrowserRouter([
         children: [
             {
                 path: '/admin',
-                element: <AdminRootIdentification><AdminHome></AdminHome></AdminRootIdentification>  // TODO : check admin
+                element: <AdminRootIdentification><AdminHome></AdminHome></AdminRootIdentification>
             },
             {
                 path: '/admin/add_newProduct',
-                element: <AdminRootIdentification><AddProduct></AddProduct></AdminRootIdentification>  // TODO : check admin
+                element: <AdminRootIdentification><AddProduct></AddProduct></AdminRootIdentification>
             }
         ]
     }

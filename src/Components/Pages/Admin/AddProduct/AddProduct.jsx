@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom"
 import { HelmetFunc } from "../../../Utils/Helmet/Helmet"
 import sidebarData from "../../../../../public/sidebar_root.json"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import { UserContext } from "../../../../ContextStorage/UserContext"
 import Swal from "sweetalert2"
+import axios_with_cookies from "../../../../Axios/axios_with_cookies"
 
 // this page is too much cause code
 
 const AddProduct = () => {
+    // context
+    const { user } = useContext(UserContext);
     // all data
     const [industrys, setIndustrys] = useState([]);
     const [catagorys, setCatagorys] = useState([]);
@@ -80,6 +84,7 @@ const AddProduct = () => {
         tagsArray.push(product_Volume.toLowerCase());
         const img = form.img.value.trim();
         const store_Volume = form.store_Volume.value;
+        const Price = form.Price.value;
         // set isPopuler as a boolian value
         let isPopular = form.isPopular.value;
         if (isPopular == "select") {
@@ -109,11 +114,14 @@ const AddProduct = () => {
             return
         }
         tagsArray.push(SubCatagory.toLowerCase());
-        const obj = { name, img, product_Volume, store_Volume, isPopular: (isPopular), Industry, Catagory, SubCatagory, hastag: tagsArray };
+        const obj = { name, Price, img, product_Volume, store_Volume, isPopular: (isPopular), Industry, Catagory, SubCatagory, hastag: tagsArray };
         console.log(obj);
-        Swal.fire("Item Added Successfully!");
-        // refresh from
-        form.reset();
+        (async function autocall() {
+            const response = await axios_with_cookies.post("/product_add", { id: user._id, obj });
+            Swal.fire("Item Added Successfully!");
+            // refresh from
+            // form.reset();
+        })();
     }
     // input Class
     const inputClass = "w-full h-10 pl-4 mt-3 font-bold bg-gray-300 dark:bg-gray-600 dark:text-white rounded-md";
@@ -169,6 +177,15 @@ const AddProduct = () => {
                         />
                     </div>
                     <div>
+                        <label>Price :</label>
+                        <input
+                            className={inputClass}
+                            type="number"
+                            name="Price"
+                            required
+                        />
+                    </div>
+                    <div>
                         <label>Store Volume :</label>
                         <input
                             className={inputClass}
@@ -177,7 +194,7 @@ const AddProduct = () => {
                             required
                         />
                     </div>
-                    <div>
+                    <div className="col-span-2">
                         <label>Tags (comma-separated) :</label>
                         <input
                             className={inputClass}

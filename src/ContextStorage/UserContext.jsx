@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { AuthContext } from "./FirebaseContext";
-import axios_without_cookies from "../Axios/axios_without_cookies";
+import axios_with_cookies from "../Axios/axios_with_cookies";
 
 // Create the userContext
 export const UserContext = createContext();
@@ -24,7 +24,7 @@ const UserProvider = ({ children }) => {
     // call this function if firebase send Any user
     const serverUserInfoCall = async () => {
         try {
-            const response = await axios_without_cookies.post("/logedInUser", { email: firebaseEmail });
+            const response = await axios_with_cookies.post("/logedInUser", { email: firebaseEmail });
             setUser(response.data.data);
         } catch (error) {
             console.error(error);

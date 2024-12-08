@@ -7,6 +7,7 @@ import LoginLogo from "../../../assets/Photo/login_side_pic.svg"
 import LoginIcon from "../../../assets/Photo/login.ico"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../ContextStorage/FirebaseContext";
+import Swal from "sweetalert2";
 
 
 // class variable
@@ -31,6 +32,7 @@ const Login = () => {
         logInOldUser(email, password)
         .then((user) =>{
             console.log(user.user.email);
+            Swal.fire("Log In Successful.");
             navigate("/");
         })
         .catch(err =>{

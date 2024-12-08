@@ -9,7 +9,7 @@ import LoginIcon from "../../../assets/Photo/login.ico"
 import { useContext, useState } from "react";
 import { AuthContext } from "../../../ContextStorage/FirebaseContext";
 // call axios
-import axios_without_cookies from "../../../Axios/axios_without_cookies";
+import axios_with_cookies from "../../../Axios/axios_with_cookies";
 import Swal from "sweetalert2";
 
 
@@ -53,9 +53,10 @@ const Register = () => {
                         const userFullName = `${first_name.trim()} ${last_name.trim()}`;
                         const userData = { name: userFullName, email };
                         // call Axios POST request after successful Firebase sign-up
-                        const response = await axios_without_cookies.post('/userSignup', userData);
+                        const response = await axios_with_cookies.post('/userSignup', userData);
                         if (response.data?.message === "success") {
                             // Reset the page
+                            Swal.fire("User SignUp Successful.");
                             navigate("/");
                             window.location.reload();
                         }

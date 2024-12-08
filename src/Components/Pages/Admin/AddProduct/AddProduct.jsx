@@ -115,7 +115,6 @@ const AddProduct = () => {
         }
         tagsArray.push(SubCatagory.toLowerCase());
         const obj = { name, Price, img, product_Volume, store_Volume, isPopular: (isPopular), Industry, Catagory, SubCatagory, hastag: tagsArray };
-        console.log(obj);
         (async function autocall() {
             const response = await axios_with_cookies.post("/product_add", { id: user._id, obj });
             Swal.fire("Item Added Successfully!");

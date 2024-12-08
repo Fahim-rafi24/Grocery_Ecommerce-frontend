@@ -10,6 +10,7 @@ import './index.css'
 import ThemeProvider from './ContextStorage/ThemeContext.jsx';
 import UserProvider from './ContextStorage/UserContext.jsx';
 import FirebaseContext from './ContextStorage/FirebaseContext.jsx';
+import ItemProvider from './ContextStorage/ItemContext.jsx';
 // 
 
 
@@ -19,7 +20,9 @@ createRoot(document.getElementById('root')).render(
     <FirebaseContext>  {/* Auth Data provider */}
       <UserProvider>  {/* User Data provider */}
         <ThemeProvider>  {/* Theme provider */}
-          <RouterProvider router={Router} /> {/* react router provider */}
+          <ItemProvider>  {/* Product manage provider */}
+            <RouterProvider router={Router} /> {/* react router provider */}
+          </ItemProvider>
         </ThemeProvider>
       </UserProvider>
     </FirebaseContext>

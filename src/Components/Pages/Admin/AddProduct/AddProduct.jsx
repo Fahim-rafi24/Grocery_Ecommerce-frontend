@@ -119,7 +119,7 @@ const AddProduct = () => {
             const response = await axios_with_cookies.post("/product_add", { id: user._id, obj });
             Swal.fire("Item Added Successfully!");
             // refresh from
-            // form.reset();
+            form.reset();
         })();
     }
     // input Class

@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 // ContextStorage
 import { ThemeContext } from "../../../ContextStorage/ThemeContext";
 import { UserContext } from "../../../ContextStorage/UserContext";
+import { ItemContext } from "../../../ContextStorage/ItemContext";
 // picture
 import lightLogo from "../../../assets/Photo/light_logo.jpeg";
 import darkLogo from "../../../assets/Photo/dark_logo.jpg";
@@ -20,19 +21,20 @@ const NavBar = () => {
 
   // call Theme from ThemeContext.jsx
   const { theme, setTheme, toggleDarkMode } = useContext(ThemeContext);
+  const { setSearchKeyWord } = useContext(ItemContext);
 
   // call user from UserContext.jsx
   const { user } = useContext(UserContext);
 
-  // make a ref for search input with navigate
-  const inputRef = useRef();
-  const handleSearch = () => {
-    // get search value
-    let data = inputRef?.current?.value;
-    if (!data.trim()) {
-      data = 'give_me_data'
+  // handle search bar
+  const handleSearch = (e) => {
+    let data = e?.target?.value;
+    if (!data) {
+      data = "search"
     }
-    return navigate(`/search/${data}`);
+    setSearchKeyWord(data);
+    navigate(`/search/data`);
+    // return navigate(`/search/data`);
   };
 
   // them effect
@@ -70,7 +72,7 @@ const NavBar = () => {
   const navbarSearch = (
     <div className="relative w-full max-w-md">
       <input
-        ref={inputRef}
+        // ref={inputRef}
         onChange={handleSearch}
         type="text"
         placeholder="Search for products (eggs, milk, potato)"

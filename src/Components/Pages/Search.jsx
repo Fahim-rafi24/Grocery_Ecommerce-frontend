@@ -47,7 +47,7 @@ const Search = () => {
                         :
                         searchCollection.map(each => (
                             <div key={each._id}>
-                                {ProductCard(each)}
+                                <ProductCard obj={each}></ProductCard>
                             </div>
                         ))
                 }

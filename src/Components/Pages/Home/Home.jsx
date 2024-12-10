@@ -1,7 +1,7 @@
 import { HelmetFunc } from "../../Utils/Helmet/Helmet";
 import { Link, useNavigate } from "react-router-dom";
 // context
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { UserContext } from "../../../ContextStorage/UserContext";
 import { ItemContext } from "../../../ContextStorage/ItemContext";
 // alart
@@ -11,18 +11,17 @@ import { Home_Serch_story } from "../../Utils/storyStatus/Home_Serch_story";
 import axios_without_cookies from "../../../Axios/axios_without_cookies";
 import ProductCard from "../../Utils/ProductCard/ProductCard";
 
-
-
 const Home = () => {
     const isHome = "home";  // decleair where & what data user call
     const [cards, setCards] = useState([]);
     // navigate
     const navigate = useNavigate();
+    // Ref for the target div
+    const triggerRef = useRef();
 
     // user data context
     const { user } = useContext(UserContext);
     const { itemsCollection, setItemsCollection } = useContext(ItemContext);
-    const filterd_product = ["200", "100", "300", "200"];
 
     useEffect(() => {
         // Check if an object with the same name already exists in itemsCollection
@@ -33,7 +32,7 @@ const Home = () => {
             const fetchProducts = async () => {
                 try {
                     // first time call just give empty arr
-                    const response = await axios_without_cookies.post(`/isHome`, {filterd_product: []});
+                    const response = await axios_without_cookies.post(`/isHome`, { filterd_product: [] });
                     const obj = {
                         name: isHome,
                         data: response?.data?.data || []
@@ -47,7 +46,7 @@ const Home = () => {
             // call this async function
             fetchProducts();
         }
-    }, [isHome, itemsCollection])
+    }, [ itemsCollection])
 
     // take card data
     useEffect(() => {
@@ -77,7 +76,54 @@ const Home = () => {
             }
         });
     }
-
+    // call this func when user scroll down in bottom & give them new card
+    const callData = () => {
+        const fetchProducts = async () => {  // call api
+            try {
+                // first time call just give empty arr
+                const response = await axios_without_cookies.post(`/isHome`, { filterd_product: [] });
+                const obj = {
+                    name: isHome,
+                    data: response?.data?.data || []
+                };
+                // set this new data in itemCollection
+                return setItemsCollection((prev) => {
+                    const existingData = prev.find(item => item.name === isHome);
+                    if (existingData) {
+                        return prev.map(item =>
+                            item.name === isHome ? { ...item, data: [...item.data, ...obj.data] } : item
+                        );
+                    } else {
+                        return [...prev, obj];
+                    }
+                });
+            }
+            catch (error) { console.error("Error fetching products:", error); }  // display error
+        };
+        fetchProducts();  // call this async function
+    };
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries[0].isIntersecting) {
+                    callData();
+                }
+            },
+            {
+                root: null, // Observe within the viewport
+                threshold: 0.1, // Trigger when 10% of the div is visible
+            }
+        );
+        const target = triggerRef.current;
+        if (target) {
+            observer.observe(target);
+        }
+        return () => {
+            if (target) {
+                observer.unobserve(target);
+            }
+        };
+    }, []);
     return (
         <div className="w-full p-3">
             {/* helmet */}
@@ -102,14 +148,16 @@ const Home = () => {
                         ?
                         <p className="text-[18px] font-light mt-10 roboto">No product found for your search.</p>
                         :
-                        cards.map(each => (
-                            <div key={each._id}>
+                        cards.map((each, inx) => (
+                            <div key={inx}>
                                 <ProductCard obj={each}></ProductCard>
                             </div>
                         ))
                 }
             </section>
-            
+            {/* this div make for just call new data */}
+            <div ref={triggerRef}></div>
+
         </div>
     );
 }

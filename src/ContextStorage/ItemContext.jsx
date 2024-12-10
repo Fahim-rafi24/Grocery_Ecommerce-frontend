@@ -3,18 +3,21 @@ import { createContext, useEffect, useState } from "react";
 // Create the userContext
 export const ItemContext = createContext();
 
-
 const ItemProvider = ({ children }) => {
     // ues for all sidebar items
-    const [itemsCollection, setItemsCollection] = useState([]);
+    const [itemsCollection, setItemsCollection] = useState(() => {
+        const storedData = sessionStorage.getItem("itemsCollection");   // store all card data in session storage
+        return storedData ? JSON.parse(storedData) : [];
+    });
     // only use for random search call
     const [searchCollection, setSearchCollection] = useState([]);
     const [searchKeyWord, setSearchKeyWord] = useState("");
 
-    // call item for home page
-    // useEffect(()=>{
-        
-    // }, [])
+    // Sync itemsCollection with sessionStorage whenever it changes
+    useEffect(() => {
+        sessionStorage.setItem("itemsCollection", JSON.stringify(itemsCollection));
+    }, [itemsCollection]);
+
     // sending item data
     const result = {
         // for all sidebar items

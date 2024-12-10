@@ -67,7 +67,7 @@ const SubCatagory_Page = () => {
             </div>
 
             {/* display search result */}
-            <section className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5 mb-32">
+            <section className="mt-10 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-5 mb-32">
                 {
                     Array.isArray(cards) && cards.length === 0
                         ?

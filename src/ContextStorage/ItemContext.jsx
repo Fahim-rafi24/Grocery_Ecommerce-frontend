@@ -12,9 +12,9 @@ const ItemProvider = ({ children }) => {
     const [searchKeyWord, setSearchKeyWord] = useState("");
 
     // call item for home page
-    useEffect(()=>{
+    // useEffect(()=>{
         
-    }, [])
+    // }, [])
     // sending item data
     const result = {
         // for all sidebar items

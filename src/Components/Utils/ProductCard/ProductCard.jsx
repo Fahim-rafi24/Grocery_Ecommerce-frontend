@@ -1,30 +1,42 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import { ItemContext } from "../../../ContextStorage/ItemContext";
 
 const ProductCard = ({ obj }) => {
-    const favourites_data = JSON.parse(localStorage.getItem("favouritesArrData") || "[]") || [];
-    const [isFavourite, setIsFavourite] = useState(
-        favourites_data.some(each => each._id === obj._id)
-    );
+    const objId = String(obj._id);
+    const {favourites, setFavourites} = useContext(ItemContext);
 
-    const addFavouritesHandeler = (obj) => {
-        // set data in local storage
-        const favouritesStorageTrue = localStorage.getItem("favouritesArrData");
-        const favouritesArr = favouritesStorageTrue ? JSON.parse(localStorage.getItem("favouritesArrData") || "[]") : [];
-        const newdata = [...favouritesArr, obj._id];
-        localStorage.setItem("favouritesArrData", JSON.stringify(newdata));
-        // hide this button from page
-        setIsFavourite(true);
-    }
+    const [isFavourite, setIsFavourite] = useState(false);
 
-    const removeFavouritesHandler = (obj) => {
-        // Get data from local storage
-        const favouritesStorageTrue = localStorage.getItem("favouritesArrData");
-        let favouritesArr = favouritesStorageTrue ? JSON.parse(localStorage.getItem("favouritesArrData") || "[]") : [];
-        favouritesArr = favouritesArr.filter(id => id !== obj._id);
-        localStorage.setItem("favouritesArrData", JSON.stringify(favouritesArr));
+    useEffect(() => {
+        setIsFavourite(favourites.includes(objId));
+    }, [favourites, objId]);
 
-        setIsFavourite(false);
+    const addFavouritesHandler = () => {
+        if (!favourites.includes(objId)) {
+            const updatedFavourites = [...favourites, objId];
+            try {
+                localStorage.setItem("favouritesArrData", JSON.stringify(updatedFavourites));
+                setFavourites(updatedFavourites);
+            } catch (error) {
+                console.error("Failed to save to localStorage:", error);
+                alert("Failed to update favourites. Please try again.");
+            }
+        }
+        else {
+            console.log("Item already in favourites:", objId);
+            alert("Item already in favourites:", objId);
+        }
+    };
+    const removeFavouritesHandler = () => {
+        const updatedFavourites = favourites.filter((id) => id !== objId);
+        try {
+            localStorage.setItem("favouritesArrData", JSON.stringify(updatedFavourites));
+            setFavourites(updatedFavourites);
+        } catch (error) {
+            console.error("Failed to save to localStorage:", error);
+            alert("Failed to update favourites. Please try again.");
+        }
     };
 
     return (
@@ -47,11 +59,11 @@ const ProductCard = ({ obj }) => {
                     {
                         isFavourite ?
                             <button
-                                onClick={() => removeFavouritesHandler(obj)}
-                                className="btn btn-outline dark:text-green-400">Favourite Item</button>
+                                onClick={removeFavouritesHandler}
+                                className="btn btn-outline text-blue-500 dark:text-green-400">Favourite Item</button>
                             :
                             <button
-                                onClick={() => addFavouritesHandeler(obj)}
+                                onClick={addFavouritesHandler}
                                 className="btn btn-outline dark:text-purple-600">Add favourites</button>
                     }
                     {/* <p className="hidden">if its true</p> */}

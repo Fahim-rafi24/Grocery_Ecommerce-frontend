@@ -13,6 +13,10 @@ const ItemProvider = ({ children }) => {
     const [searchCollection, setSearchCollection] = useState([]);
     const [searchKeyWord, setSearchKeyWord] = useState("");
 
+    const [favourites, setFavourites] = useState(() => {
+        return JSON.parse(localStorage.getItem("favouritesArrData") || "[]");
+    });
+
     // Sync itemsCollection with sessionStorage whenever it changes
     useEffect(() => {
         sessionStorage.setItem("itemsCollection", JSON.stringify(itemsCollection));
@@ -27,7 +31,10 @@ const ItemProvider = ({ children }) => {
         searchKeyWord,
         setSearchKeyWord,
         searchCollection,
-        setSearchCollection
+        setSearchCollection,
+        // favourites card variable
+        favourites,
+        setFavourites
     };
     return (
         <ItemContext.Provider value={result}>

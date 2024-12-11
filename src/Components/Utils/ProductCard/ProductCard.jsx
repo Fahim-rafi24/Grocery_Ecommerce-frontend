@@ -86,7 +86,7 @@ const ProductCard = ({ obj }) => {
                     )}
 
                     {isFavourite ? (
-                        <button onClick={removeFavouritesHandler} className="btn btn-outline text-blue-500">
+                        <button onClick={removeFavouritesHandler} className="btn btn-outline bg-blue-500">
                             Favourite Item
                         </button>
                     ) : (

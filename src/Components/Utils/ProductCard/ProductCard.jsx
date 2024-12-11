@@ -4,14 +4,35 @@ import { ItemContext } from "../../../ContextStorage/ItemContext";
 
 const ProductCard = ({ obj }) => {
     const objId = String(obj._id);
-    const {favourites, setFavourites} = useContext(ItemContext);
+    const { favourites, setFavourites, carts, addToCart, removeFromCart } = useContext(ItemContext);
 
     const [isFavourite, setIsFavourite] = useState(false);
+    const [inCart, setInCart] = useState(false);
+    const [itemCount, setItemCount] = useState(0);
 
     useEffect(() => {
         setIsFavourite(favourites.includes(objId));
     }, [favourites, objId]);
 
+    // cart code
+    useEffect(() => {
+        setInCart(carts.includes(objId));
+        setItemCount(carts.filter(id => id === objId).length);
+    }, [carts, objId]);
+
+    const addToCartHandler = () => {
+        addToCart(objId);
+    };
+
+    const removeFromCartHandler = () => {
+        removeFromCart(objId);
+    };
+
+    const addMultypleTime = () => {
+        addToCart(objId);
+    }
+
+    // favourite code
     const addFavouritesHandler = () => {
         if (!favourites.includes(objId)) {
             const updatedFavourites = [...favourites, objId];
@@ -52,22 +73,34 @@ const ProductCard = ({ obj }) => {
                 <p className="text-[20px]   ">Unit : <span>{obj.product_Volume}</span></p>
                 <p className="text-[20px]">Available In Store : <span className="text-red-400">{obj.store_Volume} Unit</span></p>
                 <p className="font-semibold text-xl roboto">Price : {obj.Price} <FaBangladeshiTakaSign className="inline-block" /></p>
-                <div className=" flex justify-between yuji-mai-regular">
-                    <button
-                        // onClick={""} this button for add to cart
-                        className="btn btn-primary">Add Card</button>
-                    {
-                        isFavourite ?
-                            <button
-                                onClick={removeFavouritesHandler}
-                                className="btn btn-outline text-blue-500 dark:text-green-400">Favourite Item</button>
-                            :
-                            <button
-                                onClick={addFavouritesHandler}
-                                className="btn btn-outline dark:text-purple-600">Add favourites</button>
-                    }
-                    {/* <p className="hidden">if its true</p> */}
+
+                <div className="flex justify-between">
+                    {inCart ? (
+                        <button onClick={removeFromCartHandler} className="btn btn-outline">
+                            Remove from Cart
+                        </button>
+                    ) : (
+                        <button onClick={addToCartHandler} className="btn btn-primary">
+                            Add Card
+                        </button>
+                    )}
+
+                    {isFavourite ? (
+                        <button onClick={removeFavouritesHandler} className="btn btn-outline text-blue-500">
+                            Favourite Item
+                        </button>
+                    ) : (
+                        <button onClick={addFavouritesHandler} className="btn btn-outline text-purple-600">
+                            Add Favourites
+                        </button>
+                    )}
                 </div>
+                {
+                    itemCount > 0 ? <>
+                        <p className="mt-2">In Cart: {itemCount} / 5</p>
+                        <button className="btn" onClick={addMultypleTime}>Add More Item</button>
+                    </> : ""
+                }
             </div>
         </div>
     )

@@ -15,6 +15,7 @@ import Login from "../Components/Pages/Login/Login";
 import { AdminHome } from "../Components/Pages/Admin/Home/AdminHome";
 import { AddProduct } from "../Components/Pages/Admin/AddProduct/AddProduct";
 import { AdminRootIdentification } from "../AdminRootIdentification/AdminRootIdentification";
+import { UserRootIdentification } from "../PrivateRootIdentification/PrivateRootIdentification";
 
 const Router = createBrowserRouter([
     {
@@ -35,7 +36,7 @@ const Router = createBrowserRouter([
         },
         {
             path: '/cart',
-            element: <Cart></Cart>  // user add cart path
+            element: <UserRootIdentification><Cart></Cart></UserRootIdentification>  // user add cart path
         },
         {
             path: '/favourites',

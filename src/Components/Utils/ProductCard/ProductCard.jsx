@@ -1,14 +1,19 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useMemo, useState } from "react";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import { ItemContext } from "../../../ContextStorage/ItemContext";
+import { IoIosAdd } from "react-icons/io";
+import { UserContext } from "../../../ContextStorage/UserContext";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ obj }) => {
     const objId = String(obj._id);
+    const { user } = useContext(UserContext);
     const { favourites, setFavourites, carts, addToCart, removeFromCart } = useContext(ItemContext);
-
     const [isFavourite, setIsFavourite] = useState(false);
     const [inCart, setInCart] = useState(false);
     const [itemCount, setItemCount] = useState(0);
+    const navigate = useNavigate();
 
     useEffect(() => {
         setIsFavourite(favourites.includes(objId));
@@ -21,6 +26,23 @@ const ProductCard = ({ obj }) => {
     }, [carts, objId]);
 
     const addToCartHandler = () => {
+        if (!user?.name) {
+            // first give a alart
+            Swal.fire({
+                title: "Login First",
+                text: "You won't be able to add item!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Login"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate("/login")
+                }
+            });
+            return
+        }
         addToCart(objId);
     };
 
@@ -86,7 +108,7 @@ const ProductCard = ({ obj }) => {
                     )}
 
                     {isFavourite ? (
-                        <button onClick={removeFavouritesHandler} className="btn btn-outline bg-blue-500">
+                        <button onClick={removeFavouritesHandler} className="btn btn-outline dark:text-black">
                             Favourite Item
                         </button>
                     ) : (
@@ -97,8 +119,12 @@ const ProductCard = ({ obj }) => {
                 </div>
                 {
                     itemCount > 0 ? <>
-                        <p className="mt-2">In Cart: {itemCount} / 5</p>
-                        <button className="btn" onClick={addMultypleTime}>Add More Item</button>
+                        {/* <button className="btn" onClick={addMultypleTime}>Add More Item</button> */}
+                        <p
+                            className="mt-2 flex justify-center items-center"
+                        >In Cart: {itemCount} / 5
+                            <button onClick={addMultypleTime}> <IoIosAdd className="text-3xl ml-2 hover:text-green-600" /> </button>
+                        </p>
                     </> : ""
                 }
             </div>

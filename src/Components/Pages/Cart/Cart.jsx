@@ -25,9 +25,11 @@ const Cart = () => {
             {/* helmet */}
             {HelmetFunc("Cart")}
             <p className="yuji-mai-regular text-[14px] md:text-[16px]">Cart</p>
-            {/* content */}
-            <div className="md:w-4/6 mx-auto">
-                {storyStatus("cart%favourites%popular")}
+
+            {/* total Cost */}
+            <div className="flex flex-col md:flex-row justify-between my-5">
+                <h3 className="text-black dark:text-purple-500 font-bold text-center md:text-start text-4xl">Total Cost : <span>500</span> TK</h3>
+                <button className="btn btn-outline mt-3 md:mt-0 mx-10 md:mx-0 px-10">Order</button>
             </div>
 
             {/* display cart items */}
@@ -44,6 +46,11 @@ const Cart = () => {
                         ))
                 }
             </section>
+
+            {/* content */}
+            <div className="md:w-4/6 mx-auto">
+                {storyStatus("cart%favourites%popular")}
+            </div>
         </div>
     );
 }

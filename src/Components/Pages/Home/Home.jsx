@@ -21,23 +21,31 @@ const Home = () => {
 
     // user data context
     const { user } = useContext(UserContext);
-    const { itemsCollection, setItemsCollection } = useContext(ItemContext);
+    const { itemsCollection, setItemsCollection, setHome_ids } = useContext(ItemContext);
 
     useEffect(() => {
         // Check if an object with the same name already exists in itemsCollection
         const isDuplicate = itemsCollection.some(item => item.name === isHome);
 
         if (!isDuplicate) {
+            
             // call api
             const fetchProducts = async () => {
                 try {
-                    // first time call just give empty arr
                     const response = await axios_without_cookies.post(`/isHome`, { filterd_product: [] });
                     const obj = {
                         name: isHome,
                         data: response?.data?.data || []
                     };
                     setItemsCollection(pre => [...pre, obj]);
+                    const firstHome_id = [];
+                    const updatedIDS = [];
+                    obj?.data?.forEach(obj => {
+                        updatedIDS.push(obj._id)
+                    });
+                    setHome_ids(pre => [
+                        ...firstHome_id, ...updatedIDS
+                    ])
                 }
                 catch (error) {
                     console.error("Error fetching products:", error);
@@ -46,7 +54,7 @@ const Home = () => {
             // call this async function
             fetchProducts();
         }
-    }, [ itemsCollection])
+    }, [itemsCollection])
 
     // take card data
     useEffect(() => {
@@ -80,12 +88,27 @@ const Home = () => {
     const callData = () => {
         const fetchProducts = async () => {  // call api
             try {
-                // first time call just give empty arr
-                const response = await axios_without_cookies.post(`/isHome`, { filterd_product: [] });
+                const filterd = JSON.parse(sessionStorage.getItem("home_ids")) || []; // data come from local storage
+                // const filterd = JSON.parse(localStorage.getItem("home_ids")) || []; // data come from local storage
+                const filterd_normalized = filterd.map(item => item.trim());
+                const filterd_product = [...new Set(filterd_normalized)];
+                // call API
+                const response = await axios_without_cookies.post(`/isHome`, { filterd_product });
+                const responseData = response.data.data;
+                const result = responseData.filter(obj => !filterd_product.includes(obj._id));
+                // response.data.data
                 const obj = {
                     name: isHome,
-                    data: response?.data?.data || []
+                    data: result || []
                 };
+                const updatedIDS = [];
+                obj?.data?.forEach(obj => {
+                    updatedIDS.push(obj._id)
+                });
+                setHome_ids(prev => [
+                    ...prev,
+                    ...updatedIDS
+                ]);
                 // set this new data in itemCollection
                 return setItemsCollection((prev) => {
                     const existingData = prev.find(item => item.name === isHome);

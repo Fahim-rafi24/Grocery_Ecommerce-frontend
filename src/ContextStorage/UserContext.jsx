@@ -8,7 +8,6 @@ export const UserContext = createContext();
 const UserProvider = ({ children }) => {
     const [user, setUser] = useState(null);
     const [logOutVisible, setLogOutVisible] = useState(false);
-
     // call firebase Email
     const { firebaseEmail } = useContext(AuthContext);
 

@@ -7,11 +7,21 @@ const ItemProvider = ({ children }) => {
     // ues for all sidebar items
     const [itemsCollection, setItemsCollection] = useState(() => {
         const storedData = sessionStorage.getItem("itemsCollection");   // store all card data in session storage
+        if (storedData) {
+            sessionStorage.setItem("itemsCollection", JSON.stringify([]))
+            return [];
+        }
         return storedData ? JSON.parse(storedData) : [];
     });
     // only use for random search call
     const [searchCollection, setSearchCollection] = useState([]);
     const [searchKeyWord, setSearchKeyWord] = useState("");
+
+    // store home page item's _id
+    const [home_ids, setHome_ids] = useState([]);
+    useEffect(()=>{
+        sessionStorage.setItem("home_ids", JSON.stringify(home_ids));
+    },[home_ids])
 
     // Sync itemsCollection with sessionStorage whenever it changes
     useEffect(() => {
@@ -53,6 +63,9 @@ const ItemProvider = ({ children }) => {
 
     // sending item data
     const result = {
+        // filter same card to display in home
+        home_ids,
+        setHome_ids,
         // for all sidebar items
         itemsCollection,
         setItemsCollection,

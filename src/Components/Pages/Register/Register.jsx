@@ -1,7 +1,7 @@
 // helmet
 import { HelmetFunc } from "../../Utils/Helmet/Helmet";
 // react router
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // picture
 import LoginLogo from "../../../assets/Photo/login_side_pic.svg"
 import LoginIcon from "../../../assets/Photo/login.ico"
@@ -24,6 +24,9 @@ const Register = () => {
     // state
     const [err, setError] = useState("");
     const [success, setSuccess] = useState("");
+    const location = useLocation();
+    const from = location.state?.from || "/";
+    console.log(from);
 
     // handle Submit
     const handleSignUp = (e) => {
@@ -58,7 +61,7 @@ const Register = () => {
                         if (response.data?.message === "success") {
                             // Reset the page
                             Swal.fire("User SignUp Successful.");
-                            navigate("/");
+                            navigate(from);
                             window.location.reload();
                         }
                         else {

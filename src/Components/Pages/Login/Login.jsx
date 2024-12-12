@@ -1,7 +1,7 @@
 // helmet
 import { HelmetFunc } from "../../Utils/Helmet/Helmet";
 // react router
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 // picture
 import LoginLogo from "../../../assets/Photo/login_side_pic.svg"
 import LoginIcon from "../../../assets/Photo/login.ico"
@@ -16,6 +16,9 @@ const labelClass = "block text-sm font-medium text-gray-700 dark:text-zinc-200";
 const Login = () => {
     const {logInOldUser} = useContext(AuthContext);
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from || "/";
+    console.log(from);
 
     // handle error statement
     const [error, setError] = useState("");
@@ -33,7 +36,7 @@ const Login = () => {
         .then((user) =>{
             console.log(user.user.email);
             Swal.fire("Log In Successful.");
-            navigate("/");
+            navigate(from);
         })
         .catch(err =>{
             const formattedError = err?.code?.split("/")[1] || "Something Worng";
@@ -97,7 +100,8 @@ const Login = () => {
                     </form>
                     <p className="mt-4 text-sm text-center text-gray-600">
                         Don't have an account?{" "}
-                        <Link to={"/register"} className="text-blue-500 hover:underline">
+                        <Link to={"/register"} className="text-blue-500 hover:underline"
+                        state={{from}}>
                             Register here
                         </Link>
                     </p>

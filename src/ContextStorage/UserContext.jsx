@@ -16,7 +16,7 @@ const UserProvider = ({ children }) => {
         if (firebaseEmail) {
             serverUserInfoCall()
         }
-        else{
+        else {
             setUser(null);
         }
     }, [firebaseEmail])

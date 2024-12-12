@@ -4,7 +4,7 @@ import { ItemContext } from "../../../ContextStorage/ItemContext";
 import { IoIosAdd } from "react-icons/io";
 import { UserContext } from "../../../ContextStorage/UserContext";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const ProductCard = ({ obj }) => {
     const objId = String(obj._id);
@@ -14,6 +14,7 @@ const ProductCard = ({ obj }) => {
     const [inCart, setInCart] = useState(false);
     const [itemCount, setItemCount] = useState(0);
     const navigate = useNavigate();
+    const location = useLocation();
 
     useEffect(() => {
         setIsFavourite(favourites.includes(objId));
@@ -38,7 +39,7 @@ const ProductCard = ({ obj }) => {
                 confirmButtonText: "Login"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate("/login")
+                    navigate("/login", {state: {from: location.pathname }})
                 }
             });
             return

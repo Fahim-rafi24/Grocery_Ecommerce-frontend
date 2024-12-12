@@ -7,7 +7,7 @@ import favourites from "../../../assets/Photo/favourites.png"
 // utils
 import { SideBar_Formating } from "./SideBar_Formating";
 // context
-import { createContext, useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../../ContextStorage/UserContext";
 import { AuthContext } from "../../../ContextStorage/FirebaseContext";
 import Swal from "sweetalert2";
@@ -19,9 +19,9 @@ const Sidebar = () => {
     const { logoutUser } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    // 
+    // check can user is login
     const handleGoToCart = () => {
-        if (user?.name) {
+        if (user?.name && user?.email) {
             navigate("/cart")
         } else{
             // first give a alart
@@ -35,7 +35,7 @@ const Sidebar = () => {
                 confirmButtonText: "Login"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate("/login")
+                    navigate("/login", {state:{from: "/cart" }})
                 }
             });
             return

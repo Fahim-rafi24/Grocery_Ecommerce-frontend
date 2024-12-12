@@ -39,7 +39,7 @@ const ProductCard = ({ obj }) => {
                 confirmButtonText: "Login"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate("/login", {state: {from: location.pathname }})
+                    navigate("/login", { state: { from: location.pathname } })
                 }
             });
             return
@@ -97,9 +97,19 @@ const ProductCard = ({ obj }) => {
                 <p className="text-[20px]">Available In Store : <span className="text-red-400">{obj.store_Volume} Unit</span></p>
                 <p className="font-semibold text-xl roboto">Price : {obj.Price} <FaBangladeshiTakaSign className="inline-block" /></p>
 
+                {
+                    itemCount > 0 ? <>
+                        {/* <button className="btn" onClick={addMultypleTime}>Add More Item</button> */}
+                        <p
+                            className="mt-2 flex justify-center items-center"
+                        >In Cart: {itemCount} / 5
+                            <button onClick={addMultypleTime}> <IoIosAdd className="text-3xl ml-2 hover:text-green-600" /> </button>
+                        </p>
+                    </> : ""
+                }
                 <div className="flex justify-between">
                     {inCart ? (
-                        <button onClick={removeFromCartHandler} className="btn btn-outline">
+                        <button onClick={removeFromCartHandler} className="btn btn-outline text-blue-500">
                             Remove from Cart
                         </button>
                     ) : (
@@ -118,16 +128,6 @@ const ProductCard = ({ obj }) => {
                         </button>
                     )}
                 </div>
-                {
-                    itemCount > 0 ? <>
-                        {/* <button className="btn" onClick={addMultypleTime}>Add More Item</button> */}
-                        <p
-                            className="mt-2 flex justify-center items-center"
-                        >In Cart: {itemCount} / 5
-                            <button onClick={addMultypleTime}> <IoIosAdd className="text-3xl ml-2 hover:text-green-600" /> </button>
-                        </p>
-                    </> : ""
-                }
             </div>
         </div>
     )

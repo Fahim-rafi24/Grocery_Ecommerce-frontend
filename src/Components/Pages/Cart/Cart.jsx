@@ -6,13 +6,13 @@ import axios_without_cookies from "../../../Axios/axios_without_cookies";
 import ProductCard from "../../Utils/ProductCard/ProductCard.jsx";
 
 
-
 const Cart = () => {
     const { carts } = useContext(ItemContext);
     const newArr = [...new Set(carts)];
 
     // cart state
     const [cartList, setCartList] = useState([]);
+    const [totalCost, setCostTotal] = useState(0);
     useEffect(() => {
         const callAPI = async () => {
             const response = await axios_without_cookies.post("/IsCard_IsFav", { arr: newArr })
@@ -20,6 +20,26 @@ const Cart = () => {
         }
         callAPI();
     }, [])
+
+    useEffect(() => {
+        // call total cost api
+        const fetchProducts = async () => {
+            try {
+                const response = await axios_without_cookies.post(`/calculate-total`, { productIds: carts });
+                setCostTotal(response.data.data);
+            } catch (error) {
+                setCostTotal("Something May Worng... Load Page Again");
+                console.error("Error fetching products:", error);
+            }
+        };
+        // call this async function
+        fetchProducts();
+    }, [carts])
+
+    const handleOrderBtn = () => {
+        console.log("order Now");
+    }
+
     return (
         <div className="w-full p-3">
             {/* helmet */}
@@ -28,8 +48,10 @@ const Cart = () => {
 
             {/* total Cost */}
             <div className="flex flex-col md:flex-row justify-between my-5">
-                <h3 className="text-black dark:text-purple-500 font-bold text-center md:text-start text-4xl">Total Cost : <span>500</span> TK</h3>
-                <button className="btn btn-outline mt-3 md:mt-0 mx-10 md:mx-0 px-10">Order</button>
+                <h3 className="text-black dark:text-purple-500 font-bold text-center md:text-start text-4xl">Total Cost : <span>{totalCost}</span> TK</h3>
+                <button
+                    onClick={handleOrderBtn}
+                    className="btn btn-outline mt-3 md:mt-0 mx-10 md:mx-0 px-10">Order</button>
             </div>
 
             {/* display cart items */}

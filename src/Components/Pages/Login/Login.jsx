@@ -33,7 +33,6 @@ const Login = () => {
         const password = form.password.value;
         logInOldUser(email, password)
         .then((user) =>{
-            console.log(user.user.email);
             Swal.fire("Log In Successful.");
             navigate(from);
         })

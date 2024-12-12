@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import axios_with_cookies from "../../../Axios/axios_with_cookies";
 import Swal from "sweetalert2";
 import { UserContext } from "../../../ContextStorage/UserContext";
@@ -9,7 +9,7 @@ const UserInfoUpdate = () => {
     const { userId } = useParams();
     const [fromUser, callUser] = useState(null);
     const {setUser} = useContext(UserContext)
-    // console.log(fromUser)
+    const navigate = useNavigate();
 
     const location = useLocation();
     const from = location?.state?.from || "/";
@@ -58,6 +58,7 @@ const UserInfoUpdate = () => {
                     setUser(response.data.data);
                     callUser(response.data.data);
                     form.reset();
+                    navigate(from);
                     Swal.fire({
                         position: "top-end",
                         icon: "success",

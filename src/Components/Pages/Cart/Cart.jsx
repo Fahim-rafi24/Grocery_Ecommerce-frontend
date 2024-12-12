@@ -44,7 +44,7 @@ const Cart = () => {
     const handleOrderBtn = () => {
         if (!user?.name && !user.email) {
             return navigate("/login")
-        } else if (!user?.Mobile_NO || !user?.Ocopation || !user?.current_location) {
+        } else if (!user?.Mobile_NO || !user?.Ocopation || !user?.Current_location) {
             Swal.fire({
                 title: "All user info is required",
                 text: "Complete first your Account Details",
@@ -55,11 +55,23 @@ const Cart = () => {
                 confirmButtonText: "Update Account"
             }).then((result) => {
                 if (result.isConfirmed) {
-                    navigate(`/user/${user._id}`, {state : {from: "/cart"}})
+                    navigate(`/user/${user._id}`, { state: { from: "/cart" } })
                 }
             });
         } else {
-            console.log("do the payment")
+            Swal.fire({
+                title: "Are you sure?",
+                text: `Your Total Cost of Product is ${totalCost} TK.`,
+                icon: "info",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes Do it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate(`/payment/${user._id}`, { state: { totalCost } }) 
+                }
+            });
         }
     }
 

@@ -68,7 +68,6 @@ const ProductCard = ({ obj }) => {
             }
         }
         else {
-            console.log("Item already in favourites:", objId);
             alert("Item already in favourites:", objId);
         }
     };

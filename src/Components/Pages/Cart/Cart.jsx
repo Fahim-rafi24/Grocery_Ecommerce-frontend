@@ -4,11 +4,16 @@ import { storyStatus } from "../../Utils/storyStatus/storyStatus";
 import { ItemContext } from "../../../ContextStorage/ItemContext";
 import axios_without_cookies from "../../../Axios/axios_without_cookies";
 import ProductCard from "../../Utils/ProductCard/ProductCard.jsx";
+import { UserContext } from "../../../ContextStorage/UserContext.jsx";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
 const Cart = () => {
     const { carts } = useContext(ItemContext);
+    const { user } = useContext(UserContext);
     const newArr = [...new Set(carts)];
+    const navigate = useNavigate();
 
     // cart state
     const [cartList, setCartList] = useState([]);
@@ -37,7 +42,25 @@ const Cart = () => {
     }, [carts])
 
     const handleOrderBtn = () => {
-        console.log("order Now");
+        if (!user?.name && !user.email) {
+            return navigate("/login")
+        } else if (!user?.Mobile_NO || !user?.Ocopation || !user?.current_location) {
+            Swal.fire({
+                title: "All user info is required",
+                text: "Complete first your Account Details",
+                icon: "error",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Update Account"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate(`/user/${user._id}`, {state : {from: "/cart"}})
+                }
+            });
+        } else {
+            console.log("do the payment")
+        }
     }
 
     return (

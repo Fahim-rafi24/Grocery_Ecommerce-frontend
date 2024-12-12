@@ -41,7 +41,7 @@ const UserProvider = ({ children }) => {
 
     // sending data
     const result = {
-        user, logOutVisible
+        user, setUser, logOutVisible
     };
 
     return (

@@ -26,7 +26,6 @@ const Register = () => {
     const [success, setSuccess] = useState("");
     const location = useLocation();
     const from = location.state?.from || "/";
-    console.log(from);
 
     // handle Submit
     const handleSignUp = (e) => {

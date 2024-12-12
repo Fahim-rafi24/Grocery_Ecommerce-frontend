@@ -14,6 +14,7 @@ import Register from "../Components/Pages/Register/Register";
 import Login from "../Components/Pages/Login/Login";
 import { AdminHome } from "../Components/Pages/Admin/Home/AdminHome";
 import { AddProduct } from "../Components/Pages/Admin/AddProduct/AddProduct";
+import UserInfoUpdate from "../Components/Pages/UserInfoUpdate/UserInfoUpdate";
 import { AdminRootIdentification } from "../AdminRootIdentification/AdminRootIdentification";
 import { UserRootIdentification } from "../PrivateRootIdentification/PrivateRootIdentification";
 
@@ -65,6 +66,10 @@ const Router = createBrowserRouter([
         {
             path: '/register',
             element: <Register></Register>
+        },
+        {
+            path: "/user/:userId",
+            element: <UserInfoUpdate></UserInfoUpdate>
         }
       ],
     },

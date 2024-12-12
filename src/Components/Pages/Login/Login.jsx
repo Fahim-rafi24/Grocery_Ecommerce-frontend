@@ -18,7 +18,6 @@ const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from || "/";
-    console.log(from);
 
     // handle error statement
     const [error, setError] = useState("");

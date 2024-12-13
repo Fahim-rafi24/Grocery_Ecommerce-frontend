@@ -57,7 +57,7 @@ const Cart = () => {
     const handleOrderBtn = () => {
         if (!user?.name && !user.email) {
             return navigate("/login")
-        } else if (!user?.Mobile_NO || !user?.Emerangcy_number || !user?.DOB || !user?.Maritial_status || !user?.Gender || !user.Ocopation || !user?.Permanent_location || !user?.Current_location) {
+        } else if (!user?.Mobile_NO || !user?.Emerangcy_number || !user?.Permanent_location || !user?.Current_location) {
             Swal.fire({
                 title: "All user info is required",
                 text: "Complete first your Account Details",

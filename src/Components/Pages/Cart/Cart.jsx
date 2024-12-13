@@ -87,7 +87,7 @@ const Cart = () => {
                     }
                 });
             } else {
-                Swal.fire("Order First!");
+                Swal.fire("Add Item First!");
             }
         }
     }

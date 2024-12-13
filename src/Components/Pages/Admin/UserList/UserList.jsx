@@ -72,10 +72,10 @@ const UserList = () => {
         <div className="w-full p-3 md:p-10">
             <section className="my-10 flex flex-col md:flex-row md:justify-evenly">
                 <button
-                    onClick={() => handleFormData({ createdAt: 1 })}
+                    onClick={() => handleFormData({ createdAt: -1 })}
                     className="btn my-3 text-xl font-bold dark:text-black dark:hover:text-white bg-[#E3F0AF]">NEW TO OLD USER</button>
                 <button
-                    onClick={() => handleFormData({ createdAt: -1 })}
+                    onClick={() => handleFormData({ createdAt: 1 })}
                     className="btn my-3 text-xl font-bold dark:text-black dark:hover:text-white bg-purple-500">OLD TO NEW USER</button>
             </section>
             <div className="overflow-x-auto">

@@ -111,7 +111,7 @@ const OrderList = () => {
                                         eachOrder?.order_products.map((order_products, inx) => <div key={inx} className="flex justify-between my-4">
                                             <img src={order_products.product.img} alt="" className="h-20" />
                                             <div className="text-end">
-                                                <p>Each Item Price : {order_products?.product?.name}</p>
+                                                <p>Each Item Name : {order_products?.product?.name}</p>
                                                 <p>Each Item Price : {order_products?.price}</p>
                                                 <p>Total Item Quantity : {order_products?.quantity}</p>
                                             </div>

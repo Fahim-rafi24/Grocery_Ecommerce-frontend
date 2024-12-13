@@ -57,7 +57,7 @@ const Cart = () => {
     const handleOrderBtn = () => {
         if (!user?.name && !user.email) {
             return navigate("/login")
-        } else if (!user?.Mobile_NO || !user?.Ocopation || !user?.Current_location) {
+        } else if (!user?.Mobile_NO || !user?.Emerangcy_number || !user?.DOB || !user?.Maritial_status || !user?.Gender || !user.Ocopation || !user?.Permanent_location || !user?.Current_location) {
             Swal.fire({
                 title: "All user info is required",
                 text: "Complete first your Account Details",
@@ -141,7 +141,7 @@ const Cart = () => {
                                         eachOrder?.order_products.map(order_products => <div className="flex justify-between my-4">
                                             <img src={order_products.product.img} alt="" className="h-20" />
                                             <div className="text-end">
-                                                <p>Each Item Price : {order_products?.product?.name}</p>
+                                                <p>Each Item Name : {order_products?.product?.name}</p>
                                                 <p>Each Item Price : {order_products?.price}</p>
                                                 <p>Total Item Quantity : {order_products?.quantity}</p>
                                             </div>

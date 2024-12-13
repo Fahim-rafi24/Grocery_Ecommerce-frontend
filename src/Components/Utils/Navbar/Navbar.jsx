@@ -58,13 +58,16 @@ const NavBar = () => {
   const userInfoHandle = () => {
     Swal.fire({
       title: `Name : ${user?.name}`,
-      html: `
-      <h2 class="text-2xl my-5">Email : ${user?.email}</strong> <h2/>
-      <strong>Contruct : ${user?.Mobile_NO}</strong> <br/>
-      <p>Address :${user?.Permanent_location}</p>
-      `,
-      icon: 'info',
-      confirmButtonText: 'Close'
+      text: `Update your information.`,
+      icon: "info",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes Do it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        navigate(`/user/${user._id}`)
+      }
     });
   }
 
@@ -148,24 +151,24 @@ const NavBar = () => {
                   {
                     user?.avater ?
                       // if truthy
-                      <div className="flex flex-row">
-                        <img onClick={userInfoHandle} src={user.avater} alt="user Avater" className="h-12 w-12 rounded-full" />
+                      <button onClick={userInfoHandle} className="flex flex-row">
+                        <img src={user.avater} alt="user Avater" className="h-12 w-12 rounded-full" />
                         {userDetails}
-                      </div>
+                      </button>
                       :
                       // if falsy
                       <>
                         {
                           theme === "dark" ?
-                            <div className="flex h-full flex-row" onClick={userInfoHandle}>
+                            <button className="flex h-full flex-row" onClick={userInfoHandle}>
                               <FaUserCircle className="h-full text-5xl" />
                               {userDetails}
-                            </div>
+                            </button>
                             :
-                            <div className="flex h-full flex-row" onClick={userInfoHandle}>
+                            <button className="flex h-full flex-row" onClick={userInfoHandle}>
                               <FaRegUserCircle className="h-full text-5xl" />
                               {userDetails}
-                            </div>
+                            </button>
                         }
                       </>
                   }

@@ -19,7 +19,7 @@ const AdminHome = () => {
             </section>
             <section className="mt-14 flex justify-evenly">
                 <Link
-                to={"/"}
+                to={"/admin/userList"}
                 className="btn px-10 rounded-lg text-white font-semibold bg-purple-600">User List</Link>
                 <Link
                 to={"/admin/orderList"}

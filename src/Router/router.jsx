@@ -18,6 +18,7 @@ import UserInfoUpdate from "../Components/Pages/UserInfoUpdate/UserInfoUpdate";
 import PaymentPage from "../Components/Pages/PaymentPage/PaymentPage";
 import { AdminRootIdentification } from "../AdminRootIdentification/AdminRootIdentification";
 import { UserRootIdentification } from "../PrivateRootIdentification/PrivateRootIdentification";
+import OrderList from "../Components/Pages/Admin/OrderList/OrderList";
 
 const Router = createBrowserRouter([
     {
@@ -85,6 +86,10 @@ const Router = createBrowserRouter([
             {
                 path: '/admin/add_newProduct',
                 element: <AdminRootIdentification><AddProduct></AddProduct></AdminRootIdentification>
+            },
+            {
+                path: '/admin/orderList',
+                element: <AdminRootIdentification><OrderList></OrderList></AdminRootIdentification>
             }
         ]
     },

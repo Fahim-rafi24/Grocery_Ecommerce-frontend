@@ -12,10 +12,18 @@ const AdminHome = () => {
             {/* Add New Product */}
             <section className="flex justify-center">
                 <Link
-                to={"/admin/add_newProduct"}
-                className="flex justify-center items-center border-2 dark:border-white border-black border-dotted dark:border-double min-h-56 mt-32 z-0 w-4/6">
-                <button className="btn rounded-none bg-green-400 dark:bg-amber-200 dark:hover:bg-gray-300 dark:text-blue-500 text-xl">+ add New Product</button>
+                    to={"/admin/add_newProduct"}
+                    className="flex justify-center items-center border-2 dark:border-white border-black border-dotted dark:border-double min-h-56 mt-32 z-0 w-4/6">
+                    <button className="btn rounded-none bg-green-400 dark:bg-amber-200 dark:hover:bg-gray-300 dark:text-blue-500 text-xl">+ add New Product</button>
                 </Link>
+            </section>
+            <section className="mt-14 flex justify-evenly">
+                <Link
+                to={"/"}
+                className="btn px-10 rounded-lg text-white font-semibold bg-purple-600">User List</Link>
+                <Link
+                to={"/admin/orderList"}
+                className="btn px-10 rounded-lg text-white font-semibold bg-blue-600">Order List</Link>
             </section>
         </div>
     )

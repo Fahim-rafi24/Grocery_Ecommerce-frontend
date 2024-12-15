@@ -63,12 +63,12 @@ const ProductCard = ({ obj }) => {
                 localStorage.setItem("favouritesArrData", JSON.stringify(updatedFavourites));
                 setFavourites(updatedFavourites);
             } catch (error) {
-                console.error("Failed to save to localStorage:", error);
-                alert("Failed to update favourites. Please try again.");
+                // console.error("Failed to save to localStorage:", error);
+                // alert("Failed to update favourites. Please try again.");
             }
         }
         else {
-            alert("Item already in favourites:", objId);
+            // alert("Item already in favourites:", objId);
         }
     };
     const removeFavouritesHandler = () => {
@@ -77,8 +77,8 @@ const ProductCard = ({ obj }) => {
             localStorage.setItem("favouritesArrData", JSON.stringify(updatedFavourites));
             setFavourites(updatedFavourites);
         } catch (error) {
-            console.error("Failed to save to localStorage:", error);
-            alert("Failed to update favourites. Please try again.");
+            // console.error("Failed to save to localStorage:", error);
+            // alert("Failed to update favourites. Please try again.");
         }
     };
 

@@ -26,7 +26,7 @@ const UserProvider = ({ children }) => {
             const response = await axios_with_cookies.post("/logedInUser", { email: firebaseEmail });
             setUser(response.data.data.user);
         } catch (error) {
-            console.error(error);
+            // console.error(error);
         }
     }
 

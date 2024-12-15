@@ -21,7 +21,7 @@ const UserInfoUpdate = () => {
                 const response = await axios_with_cookies.post(`/UserInfo`, { id: userId, obj: {} });
                 callUser(response?.data?.data?.user);  // i know this api not importent . Because this user info all ready exist in user Context
             } catch (error) {
-                console.error("Error fetching products:", error);
+                // console.error("Error fetching products:", error);
             }
         };
         // call this async function

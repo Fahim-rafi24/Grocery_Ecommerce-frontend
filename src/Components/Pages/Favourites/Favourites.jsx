@@ -17,7 +17,7 @@ const Favourites = () => {
                     const responsed = await axios_without_cookies.post("/IsCard_IsFav", { arr });
                     setFavourites(responsed.data.data);
                 } catch (error) {
-                    console.error("Error fetching products:", error);
+                    // console.error("Error fetching products:", error);
                 }
             };
             callAPI();

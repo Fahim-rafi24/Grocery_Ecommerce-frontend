@@ -48,7 +48,7 @@ const Home = () => {
                     ])
                 }
                 catch (error) {
-                    console.error("Error fetching products:", error);
+                    // console.error("Error fetching products:", error);
                 }
             };
             // call this async function
@@ -121,7 +121,9 @@ const Home = () => {
                     }
                 });
             }
-            catch (error) { console.error("Error fetching products:", error); }  // display error
+            catch (error) {
+                // console.error("Error fetching products:", error); 
+            }  // display error
         };
         fetchProducts();  // call this async function
     };

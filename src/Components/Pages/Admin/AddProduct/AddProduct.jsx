@@ -117,7 +117,7 @@ const AddProduct = () => {
         const obj = { name, Price, img, product_Volume, store_Volume, isPopular: (isPopular), Industry, Catagory, SubCatagory, hastag: tagsArray };
         (async function autocall() {
             const response = await axios_with_cookies.post("/product_add", { id: user._id, obj });
-            console.log(response);
+            // console.log(response);
             if (response.data.message === "User info updated.") {
                 Swal.fire("Item Added Successfully!");
                 // refresh from

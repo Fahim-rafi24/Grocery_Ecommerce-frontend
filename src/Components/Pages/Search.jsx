@@ -18,7 +18,7 @@ const Search = () => {
                 const response = await axios_without_cookies.get(`/search?data=${result}`);
                 setSearchCollection(response?.data?.data);
             } catch (error) {
-                console.error("Error fetching products:", error);
+                // console.error("Error fetching products:", error);
             } finally {
                 // end
             }

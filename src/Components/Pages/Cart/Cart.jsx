@@ -47,7 +47,7 @@ const Cart = () => {
                 setCostTotal(response.data.data.totalCost);
             } catch (error) {
                 setCostTotal("Something May Worng... Load Page Again");
-                console.error("Error fetching products:", error);
+                // console.error("Error fetching products:", error);
             }
         };
         // call this async function

@@ -29,7 +29,7 @@ const Popular = () => {
                     setItemsCollection(pre => [...pre, obj]);
                 }
                 catch (error) {
-                    console.error("Error fetching products:", error);
+                    // console.error("Error fetching products:", error);
                 }
             };
             // call this async function

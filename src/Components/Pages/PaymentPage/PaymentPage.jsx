@@ -20,7 +20,7 @@ const PaymentPage = () => {
                     totalCost, Cart
                 };
                 const response = await axios_with_cookies.post(`/Pay_add_product`, { id: userId, obj });
-                if (response?.data?.data) {
+                if (response.data.message === "Successfull") {
                     localStorage.removeItem("Cart");
                     setCarts([]);
                     navigate("/");

@@ -24,7 +24,7 @@ const UserProvider = ({ children }) => {
     const serverUserInfoCall = async () => {
         try {
             const response = await axios_with_cookies.post("/logedInUser", { email: firebaseEmail });
-            setUser(response.data.data);
+            setUser(response.data.data.user);
         } catch (error) {
             console.error(error);
         }

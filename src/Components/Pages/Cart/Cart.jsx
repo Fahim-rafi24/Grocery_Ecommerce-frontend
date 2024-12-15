@@ -33,7 +33,7 @@ const Cart = () => {
         if (user?._id && !previousOrders) {
             const callAPI = async () => {
                 const response = await axios_with_cookies.post("/order_status", { id: user?._id, obj: {} })
-                setOrders(response.data.data);
+                setOrders(response.data);
             }
             callAPI();
         }
@@ -44,7 +44,7 @@ const Cart = () => {
         const fetchProducts = async () => {
             try {
                 const response = await axios_without_cookies.post(`/calculate-total`, { productIds: carts });
-                setCostTotal(response.data.data);
+                setCostTotal(response.data.data.totalCost);
             } catch (error) {
                 setCostTotal("Something May Worng... Load Page Again");
                 console.error("Error fetching products:", error);
@@ -138,7 +138,7 @@ const Cart = () => {
                                         <p>User Email : {eachOrder?.userDetails?.email}</p>
                                     </div>
                                     {
-                                        eachOrder?.order_products.map(order_products => <div className="flex justify-between my-4">
+                                        eachOrder?.order_products.map((order_products, inx) => <div key={inx} className="flex justify-between my-4">
                                             <img src={order_products.product.img} alt="" className="h-20" />
                                             <div className="text-end">
                                                 <p>Each Item Name : {order_products?.product?.name}</p>

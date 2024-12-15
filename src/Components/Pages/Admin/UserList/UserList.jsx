@@ -15,7 +15,7 @@ const UserList = () => {
             const id = user?._id;
             const callAPI = async () => {
                 const responce = await axios_with_cookies.post("/allUserList", { id, obj: { createdAt: 1 } })
-                setUserList(responce?.data?.data);
+                setUserList(responce?.data?.data?.users);
             };
             callAPI();
         }
@@ -25,7 +25,7 @@ const UserList = () => {
         const id = user?._id;
         const callAPI = async () => {
             const responce = await axios_with_cookies.post("/allUserList", { id, obj });
-            setUserList(responce?.data?.data);
+            setUserList(responce?.data?.data?.users);
         };
         callAPI();
     }
@@ -44,11 +44,11 @@ const UserList = () => {
                 const obj = { targetedId };
                 const callAPI = async () => {
                     const responce = await axios_with_cookies.post("/makeAdmin", { id: user?._id, obj });
-                    if (responce?.data?.data.makeAdmin) {
+                    if (responce?.data?.data?.makeAdmin === "true") {
                         const id = user?._id;
                         const callAPI = async () => {
                             const responce = await axios_with_cookies.post("/allUserList", { id, obj: { createdAt: 1 } })
-                            setUserList(responce?.data?.data);
+                            setUserList(responce?.data?.data?.users);
                         };
                         callAPI();
                         Swal.fire(`${name} add as a admin`);

@@ -57,7 +57,7 @@ const Register = () => {
                         const userData = { name: userFullName, email };
                         // call Axios POST request after successful Firebase sign-up
                         const response = await axios_with_cookies.post('/userSignup', userData);
-                        if (response.data?.message === "success") {
+                        if (response.data?.message === "successful") {
                             // Reset the page
                             Swal.fire("User SignUp Successful.");
                             navigate(from);

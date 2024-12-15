@@ -14,7 +14,7 @@ const OrderList = () => {
     useEffect(() => {
         const callAPI = async () => {
             const response = await axios_with_cookies.post("/Order_admin_status", { id: user?._id, obj: { searchValue } })
-            setOrders(response.data.data);
+            setOrders(response.data.data.ordersList);
         }
         callAPI();
     }, [searchValue])
@@ -45,7 +45,7 @@ const OrderList = () => {
                         })
                         const callAPI2 = async () => {  // recall api
                             const response = await axios_with_cookies.post("/Order_admin_status", { id: user?._id, obj: { searchValue } })
-                            setOrders(response.data.data);
+                            setOrders(response.data.data.ordersList);
                         }
                         callAPI2();
                     }

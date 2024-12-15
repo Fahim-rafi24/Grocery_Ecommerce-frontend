@@ -8,7 +8,7 @@ import { UserContext } from "../../../ContextStorage/UserContext";
 const UserInfoUpdate = () => {
     const { userId } = useParams();
     const [fromUser, callUser] = useState(null);
-    const {setUser} = useContext(UserContext)
+    const { setUser } = useContext(UserContext)
     const navigate = useNavigate();
 
     const location = useLocation();
@@ -19,7 +19,7 @@ const UserInfoUpdate = () => {
         const fetchProducts = async () => {
             try {
                 const response = await axios_with_cookies.post(`/UserInfo`, { id: userId, obj: {} });
-                callUser(response.data.data);  // i know this api not importent . Because this user info all ready exist in user Context
+                callUser(response?.data?.data?.user);  // i know this api not importent . Because this user info all ready exist in user Context
             } catch (error) {
                 console.error("Error fetching products:", error);
             }
@@ -55,17 +55,19 @@ const UserInfoUpdate = () => {
             const fetchInfoCall = async () => {
                 try {
                     const response = await axios_with_cookies.post("/UpdateUserInfo", callObj)
-                    setUser(response.data.data);
-                    callUser(response.data.data);
-                    form.reset();
-                    navigate(from);
-                    Swal.fire({
-                        position: "top-end",
-                        icon: "success",
-                        title: `User info Updated`,
-                        showConfirmButton: false,
-                        timer: 2000
-                      });
+                    if (fromUser?._id === response?.data?.data?.updatedUser._id) {
+                        setUser(response?.data?.data?.updatedUser);
+                        callUser(response?.data?.data?.updatedUser);
+                        form.reset();
+                        navigate(from);
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: `User info Updated`,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });   
+                    }
                 } catch (error) {
                     console.log("Error happend", error);
                 }
